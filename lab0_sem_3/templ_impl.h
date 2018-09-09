@@ -3,16 +3,29 @@
 using namespace std;
 
 template <typename TElement>
-Sequence<TElement>:: Sequence() {
-	this->amount = setAmount();
+Sequence<TElement>:: Sequence(int a) {
+	this->amount = /*setAmount()*/a;
 }
 
+//template <typename TElement>
+//Sequence<TElement>::Sequence() {
+//	this->amount = setAmount();
+//}
+
+template <typename TElement>
+ArraySequence<TElement>::ArraySequence(int a) {
+	currentAmount = a;
+}
 
 template <typename TElement>
 int Sequence<TElement>::getLength() {
 	return amount;
 }
 
+template <typename TElement>
+int ArraySequence<TElement>::getLength() {
+	return currentAmount;
+}
 
 //template <typename TElement>
 //void Sequence<TElement>::SetSequence(int am) {
@@ -49,17 +62,30 @@ void ArraySequence<TElement>::Append(TElement item, int index) {
 
 //for list
 
-//template <typename TElement>
-//ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, int endIndex) {
-//	
-//	ArraySequence<TElement> result(getLength());
-//	
-//	for (int i = 0; i < getLength(); i++) {
-//		result.Append(currentArr[i], i);
-//	}
-//
-//	return  result;
-//}
+
+template <typename TElement>
+ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, int endIndex) {
+
+	ArraySequence<TElement> result(endIndex - startIndex+1);
+
+	int j = startIndex;
+	for (int i = 0; i < endIndex - startIndex+1; i++) {
+		result.Append(currentArr[j], i);
+		j++;
+	}
+	
+	return result;
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::Display() {
+	cout << "Current array sequence:" << endl;
+	for (int i = 0; i < getLength(); i++) {
+		cout << i + 1 << ") ";
+		cout << currentArr[i];
+		cout << "\n";
+	}
+}
 
 
 #endif // !_TEML__I__

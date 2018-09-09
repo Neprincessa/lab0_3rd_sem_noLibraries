@@ -1,17 +1,19 @@
 #ifndef _TEMPL_L__
 #define _TEMPL_L__
-#include "constants.h"
+
 
 template <typename TElement>
 class Sequence {
 	int amount;
 public: 
-	Sequence();
-	//Sequence(int);
+	Sequence() {
+		amount = 0;
+	}
+	Sequence(int);
 	virtual int getLength();//amount of elements
 	//virtual void SetSequence(int);
-	/*virtual TElement GetFirst();
-	virtual TElement GetLast();*/
+	//virtual TElement GetFirst();
+	//virtual TElement GetLast();
 	//virtual void SetSequence(); //set all elements
 	//virtual TElement Get( int index); //get element by index
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
@@ -35,8 +37,11 @@ public:
 	}
 
 	//void SetSequence(int);
-	//ArraySequence(int);
+	ArraySequence(int);
 	void Append(TElement, int);
+	int getLength();
+	void Display();
+	//TElement GetFirst();
 	ArraySequence<TElement> GetSubSequence(int, int);
 };
 
