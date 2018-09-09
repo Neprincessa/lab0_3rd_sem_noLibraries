@@ -87,5 +87,48 @@ void ArraySequence<TElement>::Display() {
 	}
 }
 
+template <typename TElement>
+TElement Sequence<TElement>::GetFirst() {
+	cout << "The first element is: ";
+	return 0;
+}
+
+template <typename TElement>
+TElement ArraySequence<TElement>::GetFirst() {
+	cout << "\n";
+	cout << "The first element is: ";
+	cout << currentArr[0];
+	return currentArr[0];
+	cout << "\n";
+}
+
+template <typename TElement>
+TElement Sequence<TElement>::GetLast() {
+	cout << "The last element is: ";
+	return 0;
+}
+
+template <typename TElement> 
+TElement ArraySequence<TElement>::GetLast() {
+	cout << "\n";
+	cout << "The last element is: ";
+	cout << currentArr[getLength()-1];
+	return currentArr[getLength() - 1];
+	cout << "\n";
+}
+
+template <typename TElement>
+TElement Sequence<TElement>::Get(int index) {
+	cout << "The current element is: ";
+	return 0;
+}
+
+template <class TElement>
+TElement ArraySequence<TElement>::Get(int index) {
+	cout << "\n";
+	cout << "The current element is: ";
+	cout << currentArr[index - 1] << endl;
+	return currentArr[index - 1];
+}
 
 #endif // !_TEML__I__

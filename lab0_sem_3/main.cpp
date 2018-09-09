@@ -26,7 +26,6 @@ int main() {
 		cin >> number;
 		myArr.Append(number, i);
 	}
-	
 
 	//get sub sequence
 	cout << "\n";
@@ -37,7 +36,7 @@ int main() {
 		cin >> s;
 	start = atoi(s) - 1;
 
-	while (start< 0 || start > myArr.getLength()) {
+	while (start< 0 || start > myArr.getLength()-1) {
 		cout << "Fill in number from 1 to ";
 		cout << myArr.getLength()<<endl;
 		cin >> s;
@@ -52,9 +51,9 @@ int main() {
 	while (!checkDataType(p))
 		cin >> s;
 	end = atoi(s) - 1;
-	while (end<start || end>myArr.getLength()) {
+	while (end<start || end>myArr.getLength()-1) {
 		cout << "Fill in the number from ";
-		cout << start+1;
+		cout << start;
 		cout << " to ";
 		cout << myArr.getLength();
 		cout << "\n";
@@ -65,7 +64,28 @@ int main() {
 	}
 
 	myArr.GetSubSequence(start, end).Display();
-	//dialog witn user!!!!!! to add at the end or to the begining
+	//DIALOG witn user!!!!!! to add at the end or to the begining
+
+	myArr.GetFirst();
+
+	myArr.GetLast();
+	cout << "\n";
+
+	cout << "\n";
+	cout << "Fill in the number of element that you whant to get" << endl;
+	cin >> s;
+	while (!checkDataType(p))
+		cin >> s;
+	number = atoi(s);
+	while (number<0 || number > myArr.getLength()) {
+		cout << "Fill in the number from 1 to ";
+		cout << myArr.getLength();
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		number = atoi(s);
+	}
+	myArr.Get(number);
 	
 	system("pause");
 	return 0;

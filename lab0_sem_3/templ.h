@@ -12,10 +12,10 @@ public:
 	Sequence(int);
 	virtual int getLength();//amount of elements
 	//virtual void SetSequence(int);
-	//virtual TElement GetFirst();
-	//virtual TElement GetLast();
+	virtual TElement GetFirst();
+	virtual TElement GetLast();
 	//virtual void SetSequence(); //set all elements
-	//virtual TElement Get( int index); //get element by index
+	virtual TElement Get( int index); //get element by index
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
 	//virtual int getIsEmpty(); //feature that it is empty
 	virtual void Append(TElement item); // add element at the end of the existing seq
@@ -41,7 +41,9 @@ public:
 	void Append(TElement, int);
 	int getLength();
 	void Display();
-	//TElement GetFirst();
+	TElement GetFirst();
+	TElement GetLast();
+	TElement Get(int index); //get element by index
 	ArraySequence<TElement> GetSubSequence(int, int);
 };
 
