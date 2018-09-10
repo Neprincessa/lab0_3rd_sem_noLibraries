@@ -19,7 +19,7 @@ public:
 	virtual int getIsEmpty(); //feature that it is empty
 	virtual void Append(TElement item); // add element at the end of the existing seq
 	virtual void Prepend(TElement item); //add element at the begining of the seq
-	//virtual void InsertAt(int index, TElement item); //insert element in i position
+	virtual void InsertAt(int index, TElement item); //insert element in i position
 	//virtual void Remove(TElement item);
 
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
@@ -49,6 +49,7 @@ public:
 	TElement GetLast();
 	TElement Get(int index); //get element by index
 	void Prepend(TElement item);
+	void InsertAt(int index, TElement item);
 	ArraySequence<TElement> GetSubSequence(int, int);
 };
 

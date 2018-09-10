@@ -90,7 +90,25 @@ int main() {
 	
 	myArr.getIsEmpty();
 
-	myArr.Prepend(8562);
+	//fill in separate function
+	cout << "Fill in the number that you whant to prepand:" << endl;
+	cin >> s;
+	while (!checkDataType(p)) // another check for double
+		cin >> s;
+	int a = atoi(s);
+	myArr.Prepend(a);
+	myArr.Display();
+
+	cout << "Insert element at number: " << endl;
+	cin >> s;
+	while (!checkDataType(p))
+		cin >> s;
+	int indexForInsert = atoi(s); //check diap
+
+	cout << "Fill in the item" << endl;
+	int item;
+	cin >> item;
+	myArr.InsertAt(indexForInsert, item);
 	myArr.Display();
 	system("pause");
 	return 0;
