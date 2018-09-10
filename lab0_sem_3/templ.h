@@ -11,7 +11,6 @@ public:
 		Length = 0;
 		isEmpty = 1;
 	}
-	Sequence(int);
 	virtual int getLength();//amount of elements
 	virtual TElement GetFirst();
 	virtual TElement GetLast();
@@ -41,8 +40,7 @@ public:
 	}
 
 	//void SetSequence(int);
-	ArraySequence(int);
-	void Append(TElement, int);
+	void Append(TElement/*, int*/);
 	int getLength();
 	void changeCondition(int);
 	int getIsEmpty(); //feature that it is empty

@@ -13,20 +13,21 @@ int main() {
 
 	int wholeAmountOfElements = setAmount();
 
-	ArraySequence<int> myArr(wholeAmountOfElements);
+	ArraySequence<int> myArr/*(wholeAmountOfElements)*/;
 	cout << "Fill in ";
-	cout << myArr.getLength();
+	cout << /*myArr.getLength()*/wholeAmountOfElements;
 	cout << " elements" << endl;
 	
 	int number;
 
 	//choose how to add the element
-	for (int i = 0; i < myArr.getLength(); i++) {
+	for (int i = 0; i < wholeAmountOfElements; i++) {
 		cout << i + 1 << ") ";
 		cin >> number;
-		myArr.Append(number, i);
+		myArr.Append(number);
 	}
 
+	//myArr.Display();
 	//get sub sequence
 	cout << "\n";
 	int start, end;
@@ -88,6 +89,9 @@ int main() {
 	myArr.Get(number);
 	
 	myArr.getIsEmpty();
+
+	myArr.Prepend(8562);
+	myArr.Display();
 	system("pause");
 	return 0;
 }

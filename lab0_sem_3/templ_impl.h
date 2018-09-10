@@ -2,22 +2,18 @@
 #define _TEML__I__
 using namespace std;
 
-template <typename TElement>
-Sequence<TElement>:: Sequence(int a) {
-	this->Length = /*setAmount()*/a;
-	this->isEmpty = 1;
-}
-
 //template <typename TElement>
-//Sequence<TElement>::Sequence() {
-//	this->amount = setAmount();
+//Sequence<TElement>:: Sequence(int a) {
+//	this->Length = /*setAmount()*/a;
+//	this->isEmpty = 1;
 //}
 
-template <typename TElement>
-ArraySequence<TElement>::ArraySequence(int a) {
-	currentAmount = a;
-	isEmpty = 0;
-}
+
+//template <typename TElement>
+//ArraySequence<TElement>::ArraySequence(int a) {
+//	currentAmount = a;
+//	isEmpty = 0;
+//}
 
 template <typename TElement>
 int Sequence<TElement>::getLength() {
@@ -51,7 +47,7 @@ int ArraySequence<TElement>::getLength() {
 
 template <typename TElement>
 void Sequence<TElement>::Append(TElement a) {
-	int b = a;
+	TElement b = a;
 }
 
 
@@ -67,8 +63,22 @@ void ArraySequence<TElement>::changeCondition(int condition) {
 
 //check type!!!!!!!!!!!!!!!!
 template <typename TElement>
-void ArraySequence<TElement>::Append(TElement item, int index) {
-	currentArr[index] = item;
+void ArraySequence<TElement>::Append(TElement item) {
+	if (getLength() == 0) {
+		currentArr[0] = item;
+		currentAmount++;
+	}
+	else {
+		TElement *newArr = new TElement[getLength() + 1];
+		for (int i = 0; i < getLength(); i++) 
+			newArr[i] = currentArr[i];
+		newArr[getLength()] = item;
+		currentAmount++;
+		for (int i = 0; i < getLength(); i++)
+			currentArr[i] = newArr[i];
+	}
+	
+	/*currentArr[index] = item;*/
 	changeCondition(0);
 }
 
@@ -88,11 +98,11 @@ int ArraySequence<TElement>::getIsEmpty() {
 template <typename TElement>
 ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, int endIndex) {
 
-	ArraySequence<TElement> result(endIndex - startIndex+1);
-
+	ArraySequence<TElement> result/*(endIndex - startIndex+1)*/;
+	result.currentAmount = /*endIndex - startIndex + 1*/0;
 	int j = startIndex;
 	for (int i = 0; i < endIndex - startIndex+1; i++) {
-		result.Append(currentArr[j], i);
+		result.Append(currentArr[j]/*, i*/);
 		j++;
 	}
 	
@@ -153,4 +163,34 @@ TElement ArraySequence<TElement>::Get(int index) {
 	return currentArr[index - 1];
 }
 
+
+template <typename TElement>
+void Sequence<TElement>::Prepend(TElement item) {
+	TElement b = item;
+}
+
+
+template <typename TElement>
+void ArraySequence<TElement>::Prepend(TElement item) {
+	
+	if (getLength() == 0) {
+		currentArr[0] = item;
+		currentAmount++;
+	}
+	else {
+		TElement *newArr = new TElement[getLength() + 1];
+		for (int i = 1; i < getLength()+1; i++)
+			newArr[i] = currentArr[i-1];
+		newArr[0] = item;
+		currentAmount++;
+		
+		for (int i = 0; i < getLength(); i++)
+			currentArr[i] = newArr[i];
+		//currentArr[0] = item
+	}
+
+	/*currentArr[index] = item;*/
+	changeCondition(0);
+	
+}
 #endif // !_TEML__I__
