@@ -4,7 +4,8 @@ using namespace std;
 
 template <typename TElement>
 Sequence<TElement>:: Sequence(int a) {
-	this->amount = /*setAmount()*/a;
+	this->Length = /*setAmount()*/a;
+	this->isEmpty = 1;
 }
 
 //template <typename TElement>
@@ -15,11 +16,12 @@ Sequence<TElement>:: Sequence(int a) {
 template <typename TElement>
 ArraySequence<TElement>::ArraySequence(int a) {
 	currentAmount = a;
+	isEmpty = 0;
 }
 
 template <typename TElement>
 int Sequence<TElement>::getLength() {
-	return amount;
+	return Length;
 }
 
 template <typename TElement>
@@ -47,21 +49,41 @@ int ArraySequence<TElement>::getLength() {
 //	//}
 //}
 
-
-//for list
-
 template <typename TElement>
 void Sequence<TElement>::Append(TElement a) {
 	int b = a;
 }
 
+
+template <typename TElement>
+void Sequence<TElement>:: changeCondition(int condition) {
+	isEmpty = condition;
+}
+
+template <typename TElement> 
+void ArraySequence<TElement>::changeCondition(int condition) {
+	isEmpty = condition;
+}
+
+//check type!!!!!!!!!!!!!!!!
 template <typename TElement>
 void ArraySequence<TElement>::Append(TElement item, int index) {
 	currentArr[index] = item;
+	changeCondition(0);
 }
 
-//for list
 
+template <typename TElement>
+int Sequence<TElement>::getIsEmpty() {
+	return isEmpty;
+}
+
+template <typename TElement> //doesn't work
+int ArraySequence<TElement>::getIsEmpty() {
+	cout << isEmpty;
+	cout << "\n";
+	return isEmpty;
+}
 
 template <typename TElement>
 ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, int endIndex) {

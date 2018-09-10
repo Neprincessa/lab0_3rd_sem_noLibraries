@@ -72,7 +72,7 @@ int main() {
 	cout << "\n";
 
 	cout << "\n";
-	cout << "Fill in the number of element that you whant to get" << endl;
+	cout << "Fill in the number of element that you whant to get " << endl;
 	cin >> s;
 	while (!checkDataType(p))
 		cin >> s;
@@ -87,6 +87,7 @@ int main() {
 	}
 	myArr.Get(number);
 	
+	myArr.getIsEmpty();
 	system("pause");
 	return 0;
 }
