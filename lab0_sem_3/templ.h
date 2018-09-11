@@ -1,6 +1,13 @@
 #ifndef _TEMPL_L__
 #define _TEMPL_L__
 
+template <typename TElement>
+struct Node
+{
+	TElement data;
+	int index;
+	Node *Next, *Prev;
+};
 
 template <typename TElement>
 class Sequence {
@@ -40,8 +47,7 @@ public:
 			currentArr[i] = 0;
 	}
 
-	//void SetSequence(int);
-	void Append(TElement/*, int*/);
+	void Append(TElement);
 	int getLength();
 	void changeCondition(int);
 	int getIsEmpty(); //feature that it is empty
@@ -57,14 +63,25 @@ public:
 };
 
 
-//template <class T>
-//class ListSequence : Sequence<T> {
-//	int index;
-//	T data;
-//public:
-//	ListSequence();
-//};
+template <typename TElement>
+class ListSequence : Sequence<TElement> {
+	int amount;
+	int isEmpty;
+	Node<TElement> *head;
+	Node<TElement> *tail;
+public:
+	ListSequence() {
+		amount = 0;
+		isEmpty = 1;
+		head = NULL;
+		tail = NULL;
+	}
+	//void Append(TElement);
+
+};
 
 #include "templ_impl.h"
+#include "templ_impl_ArrSeq.h"
+#include "templ_impl_ListSeq.h"
 #endif // _TEMPL_L__
 #pragma once
