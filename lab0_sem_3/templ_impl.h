@@ -90,8 +90,6 @@ int Sequence<TElement>::getIsEmpty() {
 
 template <typename TElement> 
 int ArraySequence<TElement>::getIsEmpty() {
-	/*cout << isEmpty;
-	cout << "\n";*/
 	return isEmpty;
 }
 
@@ -230,7 +228,6 @@ void ArraySequence<TElement>::Remove(TElement item) {
 	int i = 0;  
 	int j = 0;
 	bool flag = false;
-	//isempty
 
 	if (getIsEmpty() == 1)
 		cout << "You can't remove element from empty sequence" << endl;
@@ -254,6 +251,18 @@ void ArraySequence<TElement>::Remove(TElement item) {
 				currentArr[i] = newArr[i];
 		}
 	}
-	
 }
+
+template <typename TElement>
+int Sequence<TElement>::chooseFunction() {
+	return 0;
+}
+
+template <typename TElement>
+int ArraySequence<TElement>::chooseFunction() {
+	int typeOfFunction = whatFunc();
+	return typeOfFunction;
+}
+
+
 #endif // !_TEML__I__

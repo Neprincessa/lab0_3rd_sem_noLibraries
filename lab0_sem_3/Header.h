@@ -4,4 +4,7 @@
 bool checkDataType(char *ptr);
 int setAmount();
 bool checkDouble(char*); //do it!!!!
+int typeOfSequence(); //array or list
+int typeOfDataOfSeq();
+int whatFunc();
 #endif // !_LAB__0__

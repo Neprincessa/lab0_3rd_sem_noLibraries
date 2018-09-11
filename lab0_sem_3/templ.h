@@ -21,6 +21,7 @@ public:
 	virtual void Prepend(TElement item); //add element at the begining of the seq
 	virtual void InsertAt(int index, TElement item); //insert element in i position
 	virtual void Remove(TElement item);
+	virtual int chooseFunction(); // what to do with func
 
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
 };
@@ -52,6 +53,8 @@ public:
 	void InsertAt(int index, TElement item);
 	void Remove(TElement item);
 	ArraySequence<TElement> GetSubSequence(int, int);
+	int chooseFunction();
+//	int appOrPrep();
 };
 
 
