@@ -54,7 +54,6 @@ public:
 	void Remove(TElement item);
 	ArraySequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
-//	int appOrPrep();
 };
 
 

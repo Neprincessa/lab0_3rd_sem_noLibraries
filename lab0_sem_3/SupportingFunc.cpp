@@ -92,3 +92,24 @@ int whatFunc() {
 	return typeOfFunction;
 }
 
+//in separate func the diap
+int typeOfSequence() {
+	cout << "If you want to work with array, press 1" << endl;
+	cout << "If you want to work with list, press 2" << endl;
+	char s[256];
+	char *p = s;
+	cin >> s;
+	while (!checkDataType(p))
+		cin >> s;
+	int curSeq = atoi(s);
+	while (curSeq < 1 || curSeq > 2) {
+		cout << "Fill in the number 1 or 2" << endl;
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		curSeq = atoi(s);
+	}
+
+	return curSeq;
+}
+
