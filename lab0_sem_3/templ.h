@@ -76,7 +76,7 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
-	//void Append(TElement);
+	void Append(TElement);
 
 };
 
