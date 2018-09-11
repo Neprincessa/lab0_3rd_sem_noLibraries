@@ -13,9 +13,9 @@ int main() {
 
 	int wholeAmountOfElements = setAmount();
 
-	ArraySequence<int> myArr/*(wholeAmountOfElements)*/;
+	ArraySequence<int> myArr;
 	cout << "Fill in ";
-	cout << /*myArr.getLength()*/wholeAmountOfElements;
+	cout << wholeAmountOfElements;
 	cout << " elements" << endl;
 	
 	int number;
@@ -27,7 +27,7 @@ int main() {
 		myArr.Append(number);
 	}
 
-	//myArr.Display();
+
 	//get sub sequence
 	cout << "\n";
 	int start, end;
@@ -47,14 +47,14 @@ int main() {
 	}
 
 
-	cout << "Fill in the end index of new sequence" << endl;
+	cout << "Fill in the end index of new sequence" << endl; //if the getLEngth = start index -> change a little bit
 	cin >> s;
 	while (!checkDataType(p))
 		cin >> s;
 	end = atoi(s) - 1;
 	while (end<start || end>myArr.getLength()-1) {
 		cout << "Fill in the number from ";
-		cout << start;
+		cout << start+1;
 		cout << " to ";
 		cout << myArr.getLength();
 		cout << "\n";
@@ -80,7 +80,7 @@ int main() {
 	number = atoi(s);
 	while (number<0 || number > myArr.getLength()) {
 		cout << "Fill in the number from 1 to ";
-		cout << myArr.getLength();
+		cout << myArr.getLength()<<" ";
 		cin >> s;
 		while (!checkDataType(p))
 			cin >> s;
@@ -88,7 +88,11 @@ int main() {
 	}
 	myArr.Get(number);
 	
-	myArr.getIsEmpty();
+	cout << "Is empty sequence?" << endl;
+	if (myArr.getIsEmpty() == 0)
+		cout << "No" << endl;
+	else
+		cout << "Yes" << endl;
 
 	//fill in separate function
 	cout << "Fill in the number that you whant to prepand:" << endl;
@@ -98,7 +102,7 @@ int main() {
 	int a = atoi(s);
 	myArr.Prepend(a);
 	myArr.Display();
-
+	cout << "\n";
 	cout << "Insert element at number: " << endl;
 	cin >> s;
 	while (!checkDataType(p))
@@ -109,6 +113,11 @@ int main() {
 	int item;
 	cin >> item;
 	myArr.InsertAt(indexForInsert, item);
+	myArr.Display();
+
+	cout << "Fill in the number to remove" << endl;
+	int ggg;
+	myArr.Remove(5);
 	myArr.Display();
 	system("pause");
 	return 0;

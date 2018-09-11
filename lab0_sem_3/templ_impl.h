@@ -88,10 +88,10 @@ int Sequence<TElement>::getIsEmpty() {
 	return isEmpty;
 }
 
-template <typename TElement> //doesn't work
+template <typename TElement> 
 int ArraySequence<TElement>::getIsEmpty() {
-	cout << isEmpty;
-	cout << "\n";
+	/*cout << isEmpty;
+	cout << "\n";*/
 	return isEmpty;
 }
 
@@ -218,4 +218,42 @@ void ArraySequence<TElement>::InsertAt(int index, TElement item) {
 	}
 }
 
+template <typename TElement>
+void Sequence<TElement>:: Remove(TElement item) {
+	cout << "Delete element" << endl;
+}
+
+
+template <typename TElement>
+void ArraySequence<TElement>::Remove(TElement item) {
+
+	int i = 0;  
+	int j = 0;
+	bool flag = false;
+	//isempty
+
+	if (getIsEmpty() == 1)
+		cout << "You can't remove element from empty sequence" << endl;
+	else {
+		TElement *newArr = new TElement[getLength() - 1];
+		while (i<getLength()) {
+			if (currentArr[i] != item) {
+				newArr[j] = currentArr[i];
+				j++;
+			}
+			if (currentArr[i] == item)
+				flag = true;
+			i++;
+		}
+		if (flag == false)
+			cout << "The element to remove hasn't been found" << endl;
+		else
+		{
+			currentAmount--;
+			for (int i = 0; i < getLength(); i++)
+				currentArr[i] = newArr[i];
+		}
+	}
+	
+}
 #endif // !_TEML__I__
