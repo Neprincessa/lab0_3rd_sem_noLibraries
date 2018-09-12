@@ -11,7 +11,6 @@ void ListSequence<TElement>::Append(TElement item) {
 	temp->Next = NULL;
 	temp->data = item;
 
-	//you need to add at the end of list!
 	if (head != NULL)   //if list is not empty
 	{
 		temp->Prev = tail;
@@ -24,4 +23,24 @@ void ListSequence<TElement>::Append(TElement item) {
 		head = tail = temp;
 	}
 }
+
+template <typename TElement>
+void ListSequence<TElement>::Display() {
+	
+	Node<TElement> *temp = head;
+	int i = 0;
+	while (temp != NULL)
+	{
+		i++;
+		cout << i << ") ";
+		cout << temp->data;
+		cout << "\n";
+		temp = temp->Next;
+	}
+	cout << "\n";
+}
+
+
+
+
 #endif // !_LST__T__

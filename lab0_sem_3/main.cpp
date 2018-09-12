@@ -30,6 +30,12 @@ int main() {
 		if (typeData == 2)
 			DoubleArrSeq();
 	}
+	if (curSeq == 2) {
+		ListSequence<int> myList;
+		myList.Append(8);
+		myList.Append(555);
+		myList.Display();
+	}
 	//list
 	
 	system("pause");

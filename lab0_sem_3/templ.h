@@ -28,6 +28,7 @@ public:
 	virtual void Prepend(TElement item); //add element at the begining of the seq
 	virtual void InsertAt(int index, TElement item); //insert element in i position
 	virtual void Remove(TElement item);
+	virtual void Display();
 	virtual int chooseFunction(); // what to do with func
 
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
@@ -77,7 +78,7 @@ public:
 		tail = NULL;
 	}
 	void Append(TElement);
-
+	void Display();
 };
 
 #include "templ_impl.h"

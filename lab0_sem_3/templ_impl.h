@@ -61,4 +61,9 @@ int Sequence<TElement>::chooseFunction() {
 	return 0;
 }
 
+
+template <typename TElement>
+void Sequence<TElement>::Display() {
+	cout << "The sequence is:" << endl;
+}
 #endif // !_TEML__I__
