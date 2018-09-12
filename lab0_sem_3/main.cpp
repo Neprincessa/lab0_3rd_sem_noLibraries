@@ -44,6 +44,10 @@ int main() {
 		myList.GetLast();
 		myList.Get(2);
 		myList.Display();
+
+		cout << "Insert" << endl;
+		myList.InsertAt(2, 77777);
+		myList.Display();
 	}
 
 	

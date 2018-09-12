@@ -172,4 +172,41 @@ TElement ListSequence<TElement>::Get(int index) {
 		return -1;
 	}
 }
+
+
+template <typename TElement>
+void ListSequence<TElement>::InsertAt(int index, TElement item) {
+	int i = 1;
+	if (head != NULL) {
+		TElement *forNewList = new TElement[amount + 1];
+		Node <TElement> *tmp = head;
+
+		while (i != index && tmp) {
+			forNewList[i-1] = tmp->data;
+			tmp = tmp->Next;
+			i++;
+		}
+		forNewList[i-1] = item;
+		while (tmp) {
+			forNewList[i] = tmp->data;
+			tmp = tmp->Next;
+			i++;
+		}
+		amount++;
+		int curAm = amount;
+		head = NULL;
+		tail = NULL;
+		amount = 0;
+		for (int i = 0; i < curAm; i++)
+			Append(forNewList[i]);
+	}
+	else {
+		Node <TElement> *temp = new Node<TElement>;
+		temp->data = item;
+		temp->Prev = NULL;
+		amount++;
+		head = tail = temp;
+	}
+}
+
 #endif // !_LST__T__

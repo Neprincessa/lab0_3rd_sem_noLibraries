@@ -54,10 +54,10 @@ public:
 	void Display();
 	TElement GetFirst();
 	TElement GetLast();
-	TElement Get(int index); //get element by index
-	void Prepend(TElement item);
-	void InsertAt(int index, TElement item);
-	void Remove(TElement item);
+	TElement Get(int); //get element by index
+	void Prepend(TElement);
+	void InsertAt(int, TElement);
+	void Remove(TElement);
 	ArraySequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
 };
@@ -83,7 +83,8 @@ public:
 	void changeCondition(int);
 	TElement GetFirst();
 	TElement GetLast();
-	TElement Get(int index);
+	TElement Get(int);
+	void InsertAt(int, TElement);
 	void Display();
 };
 
