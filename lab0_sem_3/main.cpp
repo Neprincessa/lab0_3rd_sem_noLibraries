@@ -45,6 +45,7 @@ int main() {
 		myList.Get(2);
 		myList.Display();
 
+		//check
 		cout << "Insert" << endl;
 		myList.InsertAt(2, 77777);
 		myList.Display();

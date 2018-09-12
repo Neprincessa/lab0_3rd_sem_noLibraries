@@ -189,4 +189,9 @@ int ArraySequence<TElement>::chooseFunction() {
 	return typeOfFunction;
 }
 
+
+template <typename TElement>
+ArraySequence<TElement>:: ~ArraySequence() {
+	delete currentArr;
+}
 #endif // !_ARR__T__

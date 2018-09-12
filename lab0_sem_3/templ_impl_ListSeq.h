@@ -209,4 +209,9 @@ void ListSequence<TElement>::InsertAt(int index, TElement item) {
 	}
 }
 
+//template <typename TElement>
+//void ListSequence<TElement> ::Remove(TElement item) {
+//
+//}
+
 #endif // !_LST__T__
