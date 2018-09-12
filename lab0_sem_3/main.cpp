@@ -45,9 +45,10 @@ int main() {
 		myList.Get(2);
 		myList.Display();
 
-		//check
+		//check 
 		cout << "Insert" << endl;
 		myList.InsertAt(2, 77777);
+		myList.Remove(90);
 		myList.Display();
 	}
 

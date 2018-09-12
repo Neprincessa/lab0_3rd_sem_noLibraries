@@ -157,7 +157,7 @@ TElement ListSequence<TElement>::Get(int index) {
 
 		if (flag == 1) {
 			cout << "\n";
-			cout << "The " << index << "element is: ";
+			cout << "The " << index << " element is: ";
 			cout << result << endl;
 			return result;
 		}
@@ -209,9 +209,39 @@ void ListSequence<TElement>::InsertAt(int index, TElement item) {
 	}
 }
 
-//template <typename TElement>
-//void ListSequence<TElement> ::Remove(TElement item) {
-//
-//}
+template <typename TElement>
+void ListSequence<TElement>::Remove(TElement item) {
+
+	if (head != NULL) {
+		int i = 0;
+		TElement *forNewList = new TElement[amount-1];
+		Node<TElement> *tmp = new Node<TElement>;
+		tmp = head;
+		bool flag = false;
+
+		//for head think and tail
+		while (tmp && tmp->data != item) {
+			forNewList[i] = tmp->data;
+			tmp = tmp->Next;
+			i++;
+		}
+		tmp = tmp->Next;
+		while (tmp) {
+			forNewList[i] = tmp->data;
+			tmp = tmp->Next;
+			i++;
+		}
+
+		int tmpAm = amount - 1;
+		amount = 0;
+		head = tail = NULL;
+		for (int i = 0; i< tmpAm; i++)
+			Append(forNewList[i]);
+	}
+	else {
+		cout << "You can't remove element from the empty sequence" << endl;
+		cout << "\n";
+	}
+}
 
 #endif // !_LST__T__

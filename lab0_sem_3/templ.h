@@ -85,7 +85,7 @@ public:
 	TElement GetLast();
 	TElement Get(int);
 	void InsertAt(int, TElement);
-	//void Remove(TElement);
+	void Remove(TElement);
 	void Display();
 };
 
