@@ -2,19 +2,19 @@
 #include "Header.h"
 #include "templ.h"
 
-void IntArrSeq() {
-
+void IntListSeq() {
+	
 	char s[256];
 	char *p = s;
 
-	ArraySequence<int> myArr;
+	ListSequence<int> myList;
 
 	int number, element;
 	int definiteFunc = -1;
 
 	while (definiteFunc != 0) {
 
-		definiteFunc = myArr.chooseFunction();
+		definiteFunc = myList.chooseFunction();
 
 		switch (definiteFunc)
 		{
@@ -30,7 +30,7 @@ void IntArrSeq() {
 				cin >> s;
 			element = atoi(s);
 
-			myArr.Append(element);
+			myList.Append(element);
 
 			cout << "\n";
 			break;
@@ -43,7 +43,7 @@ void IntArrSeq() {
 				cin >> s;
 			int a = atoi(s);
 
-			myArr.Prepend(a);
+			myList.Prepend(a);
 
 			cout << "\n";
 			break;
@@ -52,18 +52,18 @@ void IntArrSeq() {
 
 			cout << "The amount of elements is: ";
 
-			cout << myArr.getLength() << endl;
+			cout << myList.getLength() << endl;
 
 			cout << "\n";
 			break;
 		}
 		case 4: {
-			myArr.GetFirst();
+			myList.GetFirst();
 			cout << "\n";
 			break;
 		}
 		case 5: {
-			myArr.GetLast();
+			myList.GetLast();
 			cout << "\n";
 			break;
 		}
@@ -74,16 +74,16 @@ void IntArrSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			number = atoi(s);
-			while (number<0 || number > myArr.getLength()) {
+			while (number<0 || number > myList.getLength()) {
 				cout << "Fill in the number from 1 to ";
-				cout << myArr.getLength() << " ";
+				cout << myList.getLength() << " ";
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				number = atoi(s);
 			}
 
-			myArr.Get(number);
+			myList.Get(number);
 
 			break;
 		}
@@ -91,7 +91,7 @@ void IntArrSeq() {
 
 			cout << "Is empty sequence?" << endl;
 
-			if (myArr.getIsEmpty() == 0)
+			if (myList.getIsEmpty() == 0)
 				cout << "No" << endl;
 			else
 				cout << "Yes" << endl;
@@ -104,10 +104,10 @@ void IntArrSeq() {
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;
-			int indexForInsert = atoi(s); 
-			while (indexForInsert < 0 || indexForInsert>myArr.getLength()) {
+			int indexForInsert = atoi(s);
+			while (indexForInsert < 0 || indexForInsert>myList.getLength()) {
 				cout << "Fill in the number from 1 to ";
-				cout << myArr.getLength() << endl;
+				cout << myList.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
@@ -121,7 +121,7 @@ void IntArrSeq() {
 				cin >> s;
 			item = atoi(s);
 
-			myArr.InsertAt(indexForInsert, item);
+			myList.InsertAt(indexForInsert, item);
 
 			cout << "\n";
 			break;
@@ -135,7 +135,7 @@ void IntArrSeq() {
 				cin >> s;
 			removeElement = atoi(s);
 
-			myArr.Remove(removeElement);
+			myList.Remove(removeElement);
 
 			cout << "\n";
 			break;
@@ -144,55 +144,49 @@ void IntArrSeq() {
 
 			int start, end;
 
-			if (myArr.getIsEmpty() != 1) {
-				cout << "Fill in the start index of new sequence" << endl;
+			cout << "Fill in the start index of new sequence" << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			start = atoi(s) - 1;
+
+			while (start< 0 || start > myList.getLength() - 1) {
+				cout << "Fill in number from 1 to ";
+				cout << myList.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				start = atoi(s) - 1;
+			}
 
-				while (start< 0 || start > myArr.getLength() - 1) {
-					cout << "Fill in number from 1 to ";
-					cout << myArr.getLength() << endl;
+			if (start == myList.getLength() - 1)
+				end = myList.getLength() - 1;
+			else {
+
+				cout << "Fill in the end index of new sequence" << endl;
+				cin >> s;
+				while (!checkDataType(p))
 					cin >> s;
-					while (!checkDataType(p))
-						cin >> s;
-					start = atoi(s) - 1;
-				}
-
-				if (start == myArr.getLength() - 1)
-					end = myArr.getLength() - 1;
-				else {
-
-					cout << "Fill in the end index of new sequence" << endl;
+				end = atoi(s) - 1;
+				while (end<start || end>myList.getLength() - 1) {
+					cout << "Fill in the number from ";
+					cout << start + 1;
+					cout << " to ";
+					cout << myList.getLength();
+					cout << "\n";
 					cin >> s;
 					while (!checkDataType(p))
 						cin >> s;
 					end = atoi(s) - 1;
-					while (end<start || end>myArr.getLength() - 1) {
-						cout << "Fill in the number from ";
-						cout << start + 1;
-						cout << " to ";
-						cout << myArr.getLength();
-						cout << "\n";
-						cin >> s;
-						while (!checkDataType(p))
-							cin >> s;
-						end = atoi(s) - 1;
-					}
 				}
+			}
 
-				myArr.GetSubSequence(start, end).Display();
-			}
-			else {
-				cout << "You cann't get a sub seq from the empty seq" << endl;
-				cout << "\n";
-			}
+			myList.GetSubSequence(start, end).Display();
 
 			break;
 		}
 		case 20: {
-			myArr.Display();
+			myList.Display();
 			cout << "\n";
 			break;
 		}

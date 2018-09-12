@@ -30,33 +30,11 @@ int main() {
 		if (typeData == 2)
 			DoubleArrSeq();
 	}
-	if (curSeq == 2) {
-		
-
-		if (typeData == 1) {
+	if (curSeq == 2) {	
+		if (typeData == 1)
 			IntListSeq();
-		}
-
-		if (typeData == 2) {
-
-		}
-		//add checks!!!!!1
-		//myList.Append(8);
-		//myList.Append(555);
-		//myList.Prepend(20);
-		//myList.Prepend(90);
-
-		//cout << myList.getIsEmpty() << endl;
-		//myList.GetFirst();
-		//myList.GetLast();
-		//myList.Get(2);
-		//myList.Display();
-
-		////check 
-		//cout << "Insert" << endl;
-		//myList.InsertAt(2, 77777);
-		//myList.Remove(90);
-		//myList.Display();
+		if (typeData == 2)
+			DoubleListSeq();
 	}
 
 	

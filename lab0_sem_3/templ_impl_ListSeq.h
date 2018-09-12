@@ -225,7 +225,8 @@ void ListSequence<TElement>::Remove(TElement item) {
 			tmp = tmp->Next;
 			i++;
 		}
-		tmp = tmp->Next;
+		if (tmp)
+			tmp = tmp->Next;
 		while (tmp) {
 			forNewList[i] = tmp->data;
 			tmp = tmp->Next;
@@ -251,4 +252,27 @@ int ListSequence<TElement>::chooseFunction() {
 	return typeOfFunction;
 }
 
+
+template <typename TElement>
+ListSequence<TElement> ListSequence<TElement>::GetSubSequence(int startIndex, int endIndex) {
+
+	ListSequence<TElement> resulList;
+	resulList.amount = endIndex - startIndex + 1;
+	resulList.isEmpty = 0;
+
+	int leftFlag = startIndex; 
+
+	int i = 1;
+
+	Node<TElement> *tmp = new Node<TElement>;
+	tmp = head;
+	while (tmp) {
+		if (i >= startIndex && i<=endIndex) 
+			resulList.Append(tmp->data);
+		tmp = tmp->Next;
+		i++;
+	}
+
+	return resulList;
+}
 #endif // !_LST__T__

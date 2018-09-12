@@ -10,4 +10,5 @@ int whatFunc();
 void IntArrSeq();
 void DoubleArrSeq();
 void IntListSeq();
+void DoubleListSeq();
 #endif // !_LAB__0__

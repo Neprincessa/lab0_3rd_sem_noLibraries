@@ -94,4 +94,4 @@ public:
 #include "templ_impl_ArrSeq.h"
 #include "templ_impl_ListSeq.h"
 #endif // _TEMPL_L__
-#pragma once
+
