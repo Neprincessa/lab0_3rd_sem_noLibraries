@@ -143,44 +143,50 @@ void IntArrSeq() {
 
 			int start, end;
 
-			cout << "Fill in the start index of new sequence" << endl;
-			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-			start = atoi(s)-1;
-		
-			while (start< 0 || start > myArr.getLength() - 1) {
-				cout << "Fill in number from 1 to ";
-				cout << myArr.getLength() << endl;
+			if (myArr.getIsEmpty() != 1) {
+				cout << "Fill in the start index of new sequence" << endl;
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				start = atoi(s) - 1;
-			}
 
-			if (start == myArr.getLength() - 1)
-				end = myArr.getLength() - 1;
-			else {
-
-				cout << "Fill in the end index of new sequence" << endl;
-				cin >> s;
-				while (!checkDataType(p))
+				while (start< 0 || start > myArr.getLength() - 1) {
+					cout << "Fill in number from 1 to ";
+					cout << myArr.getLength() << endl;
 					cin >> s;
-				end = atoi(s) - 1;
-				while (end<start || end>myArr.getLength() - 1) {
-					cout << "Fill in the number from ";
-					cout << start + 1;
-					cout << " to ";
-					cout << myArr.getLength();
-					cout << "\n";
+					while (!checkDataType(p))
+						cin >> s;
+					start = atoi(s) - 1;
+				}
+
+				if (start == myArr.getLength() - 1)
+					end = myArr.getLength() - 1;
+				else {
+
+					cout << "Fill in the end index of new sequence" << endl;
 					cin >> s;
 					while (!checkDataType(p))
 						cin >> s;
 					end = atoi(s) - 1;
+					while (end<start || end>myArr.getLength() - 1) {
+						cout << "Fill in the number from ";
+						cout << start + 1;
+						cout << " to ";
+						cout << myArr.getLength();
+						cout << "\n";
+						cin >> s;
+						while (!checkDataType(p))
+							cin >> s;
+						end = atoi(s) - 1;
+					}
 				}
-			}
 
-			myArr.GetSubSequence(start, end).Display();
+				myArr.GetSubSequence(start, end).Display();
+			}
+			else {
+				cout << "You cann't get a sub seq from the empty seq" << endl;
+				cout << "\n";
+			}
 
 			break;
 		}

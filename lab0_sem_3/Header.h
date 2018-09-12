@@ -9,4 +9,5 @@ int typeOfDataOfSeq();
 int whatFunc();
 void IntArrSeq();
 void DoubleArrSeq();
+void IntListSeq();
 #endif // !_LAB__0__

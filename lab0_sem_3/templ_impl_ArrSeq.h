@@ -48,7 +48,7 @@ ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, 
 		result.Append(currentArr[j]/*, i*/);
 		j++;
 	}
-
+	result.currentAmount = endIndex - startIndex + 1;
 	return result;
 }
 
@@ -190,8 +190,4 @@ int ArraySequence<TElement>::chooseFunction() {
 }
 
 
-template <typename TElement>
-ArraySequence<TElement>:: ~ArraySequence() {
-	delete currentArr;
-}
 #endif // !_ARR__T__

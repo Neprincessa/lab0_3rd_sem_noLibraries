@@ -46,7 +46,6 @@ public:
 		for (int i = 0; i < getLength(); i++)
 			currentArr[i] = 0;
 	}
-	~ArraySequence();
 	void Append(TElement);
 	int getLength();
 	void changeCondition(int);
@@ -76,7 +75,6 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
-	~ListSequence();
 	void Append(TElement);
 	void Prepend(TElement);
 	int getLength();
@@ -87,6 +85,8 @@ public:
 	TElement Get(int);
 	void InsertAt(int, TElement);
 	void Remove(TElement);
+	ListSequence<TElement> GetSubSequence(int, int);
+	int chooseFunction();
 	void Display();
 };
 

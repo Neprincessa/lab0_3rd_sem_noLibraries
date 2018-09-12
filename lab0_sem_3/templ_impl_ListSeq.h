@@ -246,12 +246,9 @@ void ListSequence<TElement>::Remove(TElement item) {
 
 
 template <typename TElement>
-ListSequence<TElement>::~ListSequence() {
-	while (head)
-	{
-		tail = head->Next;
-		delete head;
-		head = tail;
-	}
+int ListSequence<TElement>::chooseFunction() {
+	int typeOfFunction = whatFunc();
+	return typeOfFunction;
 }
+
 #endif // !_LST__T__
