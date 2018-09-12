@@ -97,9 +97,16 @@ TElement ArraySequence<TElement>::GetLast() {
 template <class TElement>
 TElement ArraySequence<TElement>::Get(int index) {
 	cout << "\n";
-	cout << "The current element is: ";
-	cout << currentArr[index - 1] << endl;
-	return currentArr[index - 1];
+	if (getIsEmpty() != 1) {
+		cout << "The current element is: ";
+		cout << currentArr[index - 1] << endl;
+		return currentArr[index - 1];
+	}
+	else {
+		cout << "You can't get element from the empty sequence" << endl;
+		return -1;
+	}
+	
 }
 
 template <typename TElement>

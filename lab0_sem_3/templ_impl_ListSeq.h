@@ -114,4 +114,62 @@ TElement ListSequence<TElement>::GetLast() {
 		return -1;
 	}
 }
+
+template <typename TElement>
+TElement ListSequence<TElement>::Get(int index) {
+	char s[256];
+	char *p = s;
+
+	int i = 1;
+
+	//to main!!!!!!!!!1
+	if (index<1 || index > amount) {
+		cout << "Fill in the index from 1 to ";
+		cout << amount << " ";
+		cin >> s;
+		while (!checkDataType(p))
+			cin >> s;
+		index = atoi(s);
+		while (index <1 || index > amount) {
+			cout << "Fill in the index from 1 to ";
+			cout << amount << " ";
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			index = atoi(s);
+		}
+	}
+
+	if (getIsEmpty() != 1) {
+		
+		TElement result;
+		int flag = 0;
+
+		Node <TElement> *tmp = head;
+		while (tmp) {
+			if (i == index) {
+				result = tmp->data;
+				flag = 1;
+			}
+			tmp = tmp->Next;
+			i++;
+		}
+
+		if (flag == 1) {
+			cout << "\n";
+			cout << "The " << index << "element is: ";
+			cout << result << endl;
+			return result;
+		}
+			
+		else {
+			cout << "The element wasn't found" << endl;
+			return -1;
+		}
+	}
+	else {
+		cout << "You can't get the element from the empty sequence" << endl;
+		return -1;
+	}
+}
 #endif // !_LST__T__

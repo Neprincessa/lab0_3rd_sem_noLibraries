@@ -5,13 +5,12 @@ template <typename TElement>
 struct Node
 {
 	TElement data;
-	int index;
 	Node *Next, *Prev;
 };
 
 template <typename TElement>
 class Sequence {
-	int /*amount*/Length;
+	int Length;
 	int isEmpty; 
 public: 
 	Sequence() {
@@ -84,6 +83,7 @@ public:
 	void changeCondition(int);
 	TElement GetFirst();
 	TElement GetLast();
+	TElement Get(int index);
 	void Display();
 };
 

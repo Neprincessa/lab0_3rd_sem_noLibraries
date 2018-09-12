@@ -32,6 +32,8 @@ int main() {
 	}
 	if (curSeq == 2) {
 		ListSequence<int> myList;
+
+		//add checks!!!!!1
 		myList.Append(8);
 		myList.Append(555);
 		myList.Prepend(20);
@@ -40,6 +42,7 @@ int main() {
 		cout << myList.getIsEmpty() << endl;
 		myList.GetFirst();
 		myList.GetLast();
+		myList.Get(2);
 		myList.Display();
 	}
 
