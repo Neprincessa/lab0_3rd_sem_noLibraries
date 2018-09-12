@@ -11,4 +11,5 @@ void IntArrSeq();
 void DoubleArrSeq();
 void IntListSeq();
 void DoubleListSeq();
+//class Exception;
 #endif // !_LAB__0__

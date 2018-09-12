@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Header.h"
 #include "templ.h"
+#include <exception>
 
 
 using namespace std;
@@ -19,9 +20,9 @@ int main() {
 
 	int typeData;
 
-	
 
 	int curSeq = typeOfSequence();
+
 	typeData = typeOfDataOfSeq();
 
 	if (curSeq == 1) {
