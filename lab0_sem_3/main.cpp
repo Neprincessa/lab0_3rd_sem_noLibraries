@@ -34,9 +34,15 @@ int main() {
 		ListSequence<int> myList;
 		myList.Append(8);
 		myList.Append(555);
+		myList.Prepend(20);
+		myList.Prepend(90);
+
+		cout << myList.getIsEmpty() << endl;
+		myList.GetFirst();
+		myList.GetLast();
 		myList.Display();
 	}
-	//list
+
 	
 	system("pause");
 	return 0;

@@ -78,6 +78,12 @@ public:
 		tail = NULL;
 	}
 	void Append(TElement);
+	void Prepend(TElement);
+	int getLength();
+	int getIsEmpty();
+	void changeCondition(int);
+	TElement GetFirst();
+	TElement GetLast();
 	void Display();
 };
 

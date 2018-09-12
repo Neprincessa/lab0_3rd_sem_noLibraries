@@ -65,19 +65,33 @@ void ArraySequence<TElement>::Display() {
 template <typename TElement>
 TElement ArraySequence<TElement>::GetFirst() {
 	cout << "\n";
-	cout << "The first element is: ";
-	cout << currentArr[0];
-	return currentArr[0];
-	cout << "\n";
+	if (getIsEmpty() != 1) {
+		cout << "The first element is: ";
+		cout << currentArr[0];
+		cout << "\n";
+		return currentArr[0];
+	}
+	else {
+		cout << "You can't get the element from the empty sequence :(" << endl;
+		cout << "\n";
+		return -1;
+	}
 }
 
 template <typename TElement>
 TElement ArraySequence<TElement>::GetLast() {
 	cout << "\n";
-	cout << "The last element is: ";
-	cout << currentArr[getLength() - 1];
-	return currentArr[getLength() - 1];
-	cout << "\n";
+	if (getIsEmpty() != 1) {
+		cout << "The last element is: ";
+		cout << currentArr[getLength() - 1];
+		cout << "\n";
+		return currentArr[getLength() - 1];
+	}
+	else {
+		cout << "You can't get element from the empty sequence" << endl;
+		cout << "\n";
+		return -1;
+	}
 }
 
 template <class TElement>
