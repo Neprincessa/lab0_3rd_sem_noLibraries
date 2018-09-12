@@ -76,6 +76,7 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
+	~ListSequence();
 	void Append(TElement);
 	void Prepend(TElement);
 	int getLength();

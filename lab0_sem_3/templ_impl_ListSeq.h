@@ -244,4 +244,14 @@ void ListSequence<TElement>::Remove(TElement item) {
 	}
 }
 
+
+template <typename TElement>
+ListSequence<TElement>::~ListSequence() {
+	while (head)
+	{
+		tail = head->Next;
+		delete head;
+		head = tail;
+	}
+}
 #endif // !_LST__T__
