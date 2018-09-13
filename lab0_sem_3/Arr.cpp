@@ -407,15 +407,29 @@ void DoubleArrSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			ind = atoi(s);
-			while (ind<0 || ind > myArr.getLength()) {
+			/*while (ind<0 || ind > myArr.getLength()) {
 				cout << "Fill in the number from 1 to ";
 				cout << myArr.getLength() << " ";
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				ind = atoi(s);
+			}*/
+			try
+			{
+				throw myEx;
 			}
+			catch (Exception& e)
+			{
+				if (e.what(1, ind, ind, myArr.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, ind, ind, myArr.getLength()) << endl;
+					ind = 1;
+				}
 
+			}
 			myArr.Get(ind);
 
 			break;
@@ -433,23 +447,38 @@ void DoubleArrSeq() {
 		}
 		case 8: {
 
+			cout << "Fill in the item" << endl;
+			double item;
+			cin >> item;
+
 			cout << "Insert element at number: " << endl;
 			cin >> s;
 			while (!checkDataType(p))
 				cin >> s;
 			int indexForInsert = atoi(s);
-			while (indexForInsert < 0 || indexForInsert>myArr.getLength()) {
+			/*while (indexForInsert < 0 || indexForInsert>myArr.getLength()) {
 				cout << "Fill in the number from 1 to ";
 				cout << myArr.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
+			}*/
+			try
+			{
+				throw myEx;
 			}
+			catch (Exception& e)
+			{
+				if (e.what(1, indexForInsert, indexForInsert, myArr.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, indexForInsert, indexForInsert, myArr.getLength()) << endl;
+					item = -8888;
+				}
 
-			cout << "Fill in the item" << endl;
-			double item;
-			cin >> item;
-
+			}
+			
 			myArr.InsertAt(indexForInsert, item);
 
 			cout << "\n";
@@ -473,44 +502,89 @@ void DoubleArrSeq() {
 
 			int start, end;
 
-			cout << "Fill in the start index of new sequence" << endl;
-			cin >> s;
-			while (!checkDataType(p))
+			if (myArr.getIsEmpty() != 1) {
+				cout << "Fill in the start index of new sequence" << endl;
 				cin >> s;
-			start = atoi(s) - 1;
+				while (!checkDataType(p))
+					cin >> s;
+				start = atoi(s);
 
-			while (start< 0 || start > myArr.getLength() - 1) {
+				/*while (start< 0 || start > myArr.getLength() - 1) {
 				cout << "Fill in number from 1 to ";
 				cout << myArr.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
-					cin >> s;
-				start = atoi(s) - 1;
-			}
-
-			if (start == myArr.getLength() - 1)
-				end = myArr.getLength() - 1;
-			else {
-
-				cout << "Fill in the end index of new sequence" << endl;
 				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-				end = atoi(s) - 1;
-				while (end<start || end>myArr.getLength() - 1) {
-					cout << "Fill in the number from ";
-					cout << start + 1;
-					cout << " to ";
-					cout << myArr.getLength();
-					cout << "\n";
-					cin >> s;
-					while (!checkDataType(p))
-						cin >> s;
-					end = atoi(s) - 1;
+				start = atoi(s) - 1;
+				}*/
+				try
+				{
+					throw myEx;
 				}
+				catch (Exception& e)
+				{
+					if (e.what(1, start, end, myArr.getLength()) == "NORMAL_STATE")
+						int r = 1;
+					else
+					{
+						cout << e.what(1, start, end, myArr.getLength()) << endl;
+						start = -1;
+					}
+				}
+				if (start != -1) {
+					start--;
+
+					if (start == myArr.getLength() - 1)
+						end = myArr.getLength() - 1;
+					else {
+						cout << "Fill in the end index of new sequence" << endl;
+						cin >> s;
+						while (!checkDataType(p))
+							cin >> s;
+						end = atoi(s);
+
+						try
+						{
+							throw myEx;
+						}
+						catch (Exception& e)
+						{
+							if (e.what(2, start, end, myArr.getLength()) == "NORMAL_STATE")
+								int r = 0;
+							else {
+								cout << e.what(2, start, end, myArr.getLength()) << endl;
+								end = -1;
+							}
+						}
+
+						/*		while (end<start || end>myArr.getLength() - 1) {
+						cout << "Fill in the number from ";
+						cout << start + 1;
+						cout << " to ";
+						cout << myArr.getLength();
+						cout << "\n";
+						cin >> s;
+						while (!checkDataType(p))
+						cin >> s;
+						end = atoi(s) - 1;
+						}*/
+					}
+				}
+
+				if (end != -1)
+				{
+					end--;
+					myArr.GetSubSequence(start, end).Display();
+				}
+
+				else
+					cout << "You cann't get a sub sequence" << endl;
 			}
 
-			myArr.GetSubSequence(start, end).Display();
+			else {
+				cout << "You cann't get a sub seq from the empty seq" << endl;
+				cout << "\n";
+			}
 
 			break;
 		}
