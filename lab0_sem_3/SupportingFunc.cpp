@@ -2,6 +2,7 @@
 #include "Header.h"
 #include "Templ.h"
 
+
 bool checkDataType(char *ptr) {
 	bool isd = true;
 	while (*ptr)

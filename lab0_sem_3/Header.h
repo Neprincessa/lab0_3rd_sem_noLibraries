@@ -4,12 +4,12 @@
 bool checkDataType(char *ptr);
 int setAmount();
 bool checkDouble(char*); //do it!!!!
-int typeOfSequence(); //array or list
+int typeOfSequence(); 
 int typeOfDataOfSeq();
 int whatFunc();
 void IntArrSeq();
 void DoubleArrSeq();
 void IntListSeq();
 void DoubleListSeq();
-//class Exception;
+
 #endif // !_LAB__0__
