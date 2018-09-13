@@ -7,27 +7,31 @@
 
 enum Reason
 {
-	NEGATIVE_NUMBER,
-	OVER_DIAPASON_NUMBER,
-	SECOND_INDEX_LESS_THEN_FIRST
+	NEGATIVE_INDEX,
+	OVER_DIAPASON_INDEX,
+	INCORRECT_END_INDEX, 
+	NORMAL_STATE
 };
 
 class Exception: public std::exception
 {
 public:
 	
-	Reason getReason(int a) const throw();
+	Reason getReason(int typeFunc, int start, int end, int len) const throw();
 	const char* ToString(Reason v);
 	
-	virtual const  char* what(int b) const throw() {
-		Reason f = getReason(b);
+	virtual const  char* what(int typeFunc, int start, int end, int len) const throw() {
+		Reason f = getReason(typeFunc, start, end, len);
 		if (f == 0)
-			return "NEGATIVE_NUMBER";
+			return "NEGATIVE_INDEX";
 		if (f == 1)
-			return "OVER_DIAPASON_NUMBER";
+			return "OVER_DIAPASON_INDEX";
 		if (f == 2)
-			return "SECOND_INDEX_LESS_THEN_FIRST";
+			return "INCORRECT_END_INDEX";
+		if (f == 3)
+			return "NORMAL_STATE";
 	}
 }myEx;
+
 
 #endif // !_EX__E__

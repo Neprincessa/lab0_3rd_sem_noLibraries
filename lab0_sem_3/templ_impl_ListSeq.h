@@ -56,13 +56,17 @@ void ListSequence<TElement>::Display() {
 	
 	Node<TElement> *temp = head;
 	int i = 0;
-	while (temp != NULL)
-	{
-		i++;
-		cout << i << ") ";
-		cout << temp->data;
-		cout << "\n";
-		temp = temp->Next;
+	if (head == NULL)
+		cout << "Sequence is empty" << endl;
+	else {
+		while (temp != NULL)
+		{
+			i++;
+			cout << i << ") ";
+			cout << temp->data;
+			cout << "\n";
+			temp = temp->Next;
+		}
 	}
 	cout << "\n";
 }

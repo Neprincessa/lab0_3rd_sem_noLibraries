@@ -54,12 +54,16 @@ ArraySequence<TElement> ArraySequence<TElement>::GetSubSequence(int startIndex, 
 
 template <typename TElement>
 void ArraySequence<TElement>::Display() {
-	cout << "Current array sequence:" << endl;
-	for (int i = 0; i < getLength(); i++) {
-		cout << i + 1 << ") ";
-		cout << currentArr[i];
-		cout << "\n";
+	if (getIsEmpty() == 0) {
+		cout << "Current array sequence:" << endl;
+		for (int i = 0; i < getLength(); i++) {
+			cout << i + 1 << ") ";
+			cout << currentArr[i];
+			cout << "\n";
+		}
 	}
+	else
+		cout << "It is an empty sequence" << endl;
 }
 
 template <typename TElement>
