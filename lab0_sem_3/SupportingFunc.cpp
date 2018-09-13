@@ -5,14 +5,21 @@
 
 bool checkDataType(char *ptr) {
 	bool isd = true;
+	int flag = 0;
+	if (*ptr == '-') {
+		flag = 1;
+		*ptr = *(ptr++);
+	}
+		
 	while (*ptr)
 		if (!isdigit(*ptr++))
 		{
 			isd = false;
 			break;
 		}
+
 	if (!isd)
-		cout << "Fill in the positive integer, not a string or a double number" << endl;
+		cout << "Fill in  integer, not a string or a double number" << endl;
 	return isd;
 }
 
