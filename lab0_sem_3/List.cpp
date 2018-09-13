@@ -1,6 +1,64 @@
 #include <iostream>
 #include "Header.h"
 #include "templ.h"
+#include "ExceptionsForList.h"
+
+TypeError CurrentError::getReason(int typeFunc, int start, int end, int len) const throw() {
+	//typeFunc = 1 - get, 2 - insert, 3 - getSub
+	//hoe in func
+	//indexex must be not--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	if (typeFunc == 1) {
+		if (start < 1)
+			return NEGATIVE_INDEX;
+		if (start > len)
+			return OVER_DIAPASON_INDEX;
+		if (start >= 1 && start <= len)
+			return NORMAL_STATE;
+	}
+	if (typeFunc == 2) {
+		if (start < 0)
+			return NEGATIVE_INDEX;
+		else
+			if (start > len)
+				return OVER_DIAPASON_INDEX;
+			else
+			{
+				if (end < start)
+					return INCORRECT_END_INDEX;
+				if (end > len)
+					return OVER_DIAPASON_INDEX;
+				if (end >= start && end <= len)
+					return NORMAL_STATE;
+			}
+
+	}
+}
+
+const char* CurrentError::ToString(TypeError v) {
+	switch (v)
+	{
+	case NEGATIVE_INDEX:
+	{
+		return "NEGATIVE_INDEX";
+		break;
+	}
+	case OVER_DIAPASON_INDEX: {
+		return "OVER_DIAPASON_INDEX";
+		break;
+	}
+	case INCORRECT_END_INDEX: {
+		return "INCORRECT_END_INDEX";
+		break;
+	}
+	case NORMAL_STATE:
+	{
+		return "NORMAL_STATE";
+		break;
+	}
+	default:
+		break;
+	}
+}
 
 void IntListSeq() {
 	
@@ -74,15 +132,38 @@ void IntListSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			number = atoi(s);
-			while (number<0 || number > myList.getLength()) {
+
+			/*while (number<0 || number > myList.getLength()) {
 				cout << "Fill in the number from 1 to ";
 				cout << myList.getLength() << " ";
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				number = atoi(s);
+			}*/
+			/*while (ind<0 || ind > myArr.getLength()) {
+			cout << "Fill in the number from 1 to ";
+			cout << myArr.getLength() << " ";
+			cin >> s;
+			while (!checkDataType(p))
+			cin >> s;
+			ind = atoi(s);
+			}*/
+			try
+			{
+				throw myEr;
 			}
+			catch (CurrentError& e)
+			{
+				if (e.what(1, number, number, myList.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, number, number, myList.getLength()) << endl;
+					number = 1;
+				}
 
+			}
 			myList.Get(number);
 
 			break;
@@ -100,19 +181,6 @@ void IntListSeq() {
 		}
 		case 8: {
 
-			cout << "Insert element at number: " << endl;
-			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-			int indexForInsert = atoi(s);
-			while (indexForInsert < 0 || indexForInsert>myList.getLength()) {
-				cout << "Fill in the number from 1 to ";
-				cout << myList.getLength() << endl;
-				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-				indexForInsert = atoi(s);
-			}
 
 			cout << "Fill in the item" << endl;
 			int item;
@@ -121,6 +189,34 @@ void IntListSeq() {
 				cin >> s;
 			item = atoi(s);
 
+			cout << "Insert element at number: " << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			int indexForInsert = atoi(s);
+
+			/*while (indexForInsert < 0 || indexForInsert>myArr.getLength()) {
+			cout << "Fill in the number from 1 to ";
+			cout << myArr.getLength() << endl;
+			cin >> s;
+			while (!checkDataType(p))
+			cin >> s;
+			}*/
+			try
+			{
+				throw myEr;
+			}
+			catch (CurrentError& e)
+			{
+				if (e.what(1, indexForInsert, indexForInsert, myList.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, indexForInsert, indexForInsert, myList.getLength()) << endl;
+					item = -8888;
+				}
+
+			}
 			myList.InsertAt(indexForInsert, item);
 
 			cout << "\n";
@@ -144,44 +240,89 @@ void IntListSeq() {
 
 			int start, end;
 
-			cout << "Fill in the start index of new sequence" << endl;
-			cin >> s;
-			while (!checkDataType(p))
+			if (myList.getIsEmpty() != 1) {
+				cout << "Fill in the start index of new sequence" << endl;
 				cin >> s;
-			start = atoi(s) - 1;
+				while (!checkDataType(p))
+					cin >> s;
+				start = atoi(s);
 
-			while (start< 0 || start > myList.getLength() - 1) {
+				/*while (start< 0 || start > myArr.getLength() - 1) {
 				cout << "Fill in number from 1 to ";
-				cout << myList.getLength() << endl;
+				cout << myArr.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
-					cin >> s;
+				cin >> s;
 				start = atoi(s) - 1;
-			}
-
-			if (start == myList.getLength() - 1)
-				end = myList.getLength() - 1;
-			else {
-
-				cout << "Fill in the end index of new sequence" << endl;
-				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-				end = atoi(s) - 1;
-				while (end<start || end>myList.getLength() - 1) {
-					cout << "Fill in the number from ";
-					cout << start + 1;
-					cout << " to ";
-					cout << myList.getLength();
-					cout << "\n";
-					cin >> s;
-					while (!checkDataType(p))
-						cin >> s;
-					end = atoi(s) - 1;
+				}*/
+				try
+				{
+					throw myEr;
 				}
+				catch (CurrentError& e)
+				{
+					if (e.what(1, start, end, myList.getLength()) == "NORMAL_STATE")
+						int r = 1;
+					else
+					{
+						cout << e.what(1, start, end, myList.getLength()) << endl;
+						start = -1;
+					}
+				}
+				if (start != -1) {
+					start--;
+
+					if (start == myList.getLength() - 1)
+						end = myList.getLength() - 1;
+					else {
+						cout << "Fill in the end index of new sequence" << endl;
+						cin >> s;
+						while (!checkDataType(p))
+							cin >> s;
+						end = atoi(s);
+
+						try
+						{
+							throw myEr;
+						}
+						catch (CurrentError& e)
+						{
+							if (e.what(2, start, end, myList.getLength()) == "NORMAL_STATE")
+								int r = 0;
+							else {
+								cout << e.what(2, start, end, myList.getLength()) << endl;
+								end = -1;
+							}
+						}
+
+						/*		while (end<start || end>myArr.getLength() - 1) {
+						cout << "Fill in the number from ";
+						cout << start + 1;
+						cout << " to ";
+						cout << myArr.getLength();
+						cout << "\n";
+						cin >> s;
+						while (!checkDataType(p))
+						cin >> s;
+						end = atoi(s) - 1;
+						}*/
+					}
+				}
+
+				if (end != -1)
+				{
+					end--;
+					myList.GetSubSequence(start, end).Display();
+				}
+
+				else
+					cout << "You cann't get a sub sequence" << endl;
 			}
 
-			myList.GetSubSequence(start, end).Display();
+			else {
+				cout << "You cann't get a sub seq from the empty seq" << endl;
+				cout << "\n";
+			}
 
 			break;
 		}
@@ -271,13 +412,30 @@ void DoubleListSeq() {
 			while (!checkDataType(p))
 				cin >> s;
 			ind = atoi(s);
-			while (ind<0 || ind > myList.getLength()) {
+			/*while (ind<0 || ind > myList.getLength()) {
 				cout << "Fill in the number from 1 to ";
 				cout << myList.getLength() << " ";
 				cin >> s;
 				while (!checkDataType(p))
 					cin >> s;
 				ind = atoi(s);
+			}
+*/
+
+			try
+			{
+				throw myEr;
+			}
+			catch (CurrentError& e)
+			{
+				if (e.what(1, ind, ind, myList.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, ind, ind, myList.getLength()) << endl;
+					ind = 1;
+				}
+
 			}
 
 			myList.Get(ind);
@@ -297,23 +455,39 @@ void DoubleListSeq() {
 		}
 		case 8: {
 
-			cout << "Insert element at number: " << endl;
-			cin >> s;
-			while (!checkDataType(p))
-				cin >> s;
-			int indexForInsert = atoi(s);
-			while (indexForInsert < 0 || indexForInsert>myList.getLength()) {
-				cout << "Fill in the number from 1 to ";
-				cout << myList.getLength() << endl;
-				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-			}
 
 			cout << "Fill in the item" << endl;
 			double item;
 			cin >> item;
 
+			cout << "Insert element at number: " << endl;
+			cin >> s;
+			while (!checkDataType(p))
+				cin >> s;
+			int indexForInsert = atoi(s);
+			/*while (indexForInsert < 0 || indexForInsert>myList.getLength()) {
+				cout << "Fill in the number from 1 to ";
+				cout << myList.getLength() << endl;
+				cin >> s;
+				while (!checkDataType(p))
+					cin >> s;
+			}*/
+	
+			try
+			{
+				throw myEr;
+			}
+			catch (CurrentError& e)
+			{
+				if (e.what(1, indexForInsert, indexForInsert, myList.getLength()) == "NORMAL_STATE")
+					int r = 0;
+				else
+				{
+					cout << e.what(1, indexForInsert, indexForInsert, myList.getLength()) << endl;
+					item = -8888;
+				}
+
+			}
 			myList.InsertAt(indexForInsert, item);
 
 			cout << "\n";
@@ -337,44 +511,89 @@ void DoubleListSeq() {
 
 			int start, end;
 
-			cout << "Fill in the start index of new sequence" << endl;
-			cin >> s;
-			while (!checkDataType(p))
+			if (myList.getIsEmpty() != 1) {
+				cout << "Fill in the start index of new sequence" << endl;
 				cin >> s;
-			start = atoi(s) - 1;
+				while (!checkDataType(p))
+					cin >> s;
+				start = atoi(s);
 
-			while (start< 0 || start > myList.getLength() - 1) {
+				/*while (start< 0 || start > myArr.getLength() - 1) {
 				cout << "Fill in number from 1 to ";
-				cout << myList.getLength() << endl;
+				cout << myArr.getLength() << endl;
 				cin >> s;
 				while (!checkDataType(p))
-					cin >> s;
+				cin >> s;
 				start = atoi(s) - 1;
-			}
-
-			if (start == myList.getLength() - 1)
-				end = myList.getLength() - 1;
-			else {
-
-				cout << "Fill in the end index of new sequence" << endl;
-				cin >> s;
-				while (!checkDataType(p))
-					cin >> s;
-				end = atoi(s) - 1;
-				while (end<start || end>myList.getLength() - 1) {
-					cout << "Fill in the number from ";
-					cout << start + 1;
-					cout << " to ";
-					cout << myList.getLength();
-					cout << "\n";
-					cin >> s;
-					while (!checkDataType(p))
-						cin >> s;
-					end = atoi(s) - 1;
+				}*/
+				try
+				{
+					throw myEr;
 				}
+				catch (CurrentError& e)
+				{
+					if (e.what(1, start, end, myList.getLength()) == "NORMAL_STATE")
+						int r = 1;
+					else
+					{
+						cout << e.what(1, start, end, myList.getLength()) << endl;
+						start = -1;
+					}
+				}
+				if (start != -1) {
+					start--;
+
+					if (start == myList.getLength() - 1)
+						end = myList.getLength() - 1;
+					else {
+						cout << "Fill in the end index of new sequence" << endl;
+						cin >> s;
+						while (!checkDataType(p))
+							cin >> s;
+						end = atoi(s);
+
+						try
+						{
+							throw myEr;
+						}
+						catch (CurrentError& e)
+						{
+							if (e.what(2, start, end, myList.getLength()) == "NORMAL_STATE")
+								int r = 0;
+							else {
+								cout << e.what(2, start, end, myList.getLength()) << endl;
+								end = -1;
+							}
+						}
+
+						/*		while (end<start || end>myArr.getLength() - 1) {
+						cout << "Fill in the number from ";
+						cout << start + 1;
+						cout << " to ";
+						cout << myArr.getLength();
+						cout << "\n";
+						cin >> s;
+						while (!checkDataType(p))
+						cin >> s;
+						end = atoi(s) - 1;
+						}*/
+					}
+				}
+
+				if (end != -1)
+				{
+					end--;
+					myList.GetSubSequence(start, end).Display();
+				}
+
+				else
+					cout << "You cann't get a sub sequence" << endl;
 			}
 
-			myList.GetSubSequence(start, end).Display();
+			else {
+				cout << "You cann't get a sub seq from the empty seq" << endl;
+				cout << "\n";
+			}
 
 			break;
 		}

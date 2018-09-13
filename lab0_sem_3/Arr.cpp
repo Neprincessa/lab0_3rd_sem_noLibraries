@@ -98,7 +98,7 @@ void IntArrSeq() {
 
 			cout << "Fill in the number that you whant to prepand:" << endl;
 			cin >> s;
-			while (!checkDataType(p)) // another check for double
+			while (!checkDataType(p)) 
 				cin >> s;
 			int a = atoi(s);
 
