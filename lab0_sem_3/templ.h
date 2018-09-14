@@ -71,7 +71,7 @@ public:
 	int chooseFunction();
 
 
-	//--------------------------------------------Test---------------------//
+	//--------------------------------------Test------------------------------//
 	void TestAppend(TElement a,int);
 	void TestGetFirst(TElement);
 	void TestGetLast(TElement);
@@ -110,13 +110,15 @@ public:
 	int chooseFunction();
 	void Display();
 
-	//-----------------------------------------Test---------------------//
-	//void TestAppend();
-	//void TestPrepend();
-	//void TestGetFirst();
-	//void TestGetLast();
-	//void TestInsert();
-	//void TestGet();
+	//--------------------------------------Test------------------------------//
+	//void TestAppend(TElement a, int);
+	/*void TestGetFirst(TElement);
+	void TestGetLast(TElement);
+	void TestGet(TElement, int);
+	void TestLength(int);
+	void TestInsert(int*, int);
+	void TestRemove(int*, TElement);
+	void TestGetSub(int, TElement);*/
 };
 
 #include "templ_impl.h"

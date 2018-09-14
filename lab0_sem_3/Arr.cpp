@@ -637,17 +637,21 @@ void DoubleArrSeq() {
 template <typename TElement>
 void ArraySequence<TElement>::TestGet(TElement a, int index) {
 	index++;
-	if (Get(index) == a)
-		cout << "The function getting works correctly" << endl;
-	else
-		cout << "The function of getting eleent works incorrectly" << endl;
+	int k = 0;
 	try {
 		throw myEx;
 	}
 	catch (Exception& e) {
 		cout << e.what( 1, index, index, getLength()) << endl;
+		k = -1;
 	}
-
+	if (k != -1) {
+		if (Get(index) == a)
+			cout << "The function getting elementworks correctly" << endl;
+		else
+			cout << "The function of getting element works incorrectly" << endl;
+	}
+	
 }
 
 template <typename TElement>
