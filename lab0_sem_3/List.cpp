@@ -612,5 +612,67 @@ void DoubleListSeq() {
 			break;
 		}
 	}
+}
 
+template <typename TElement>
+void ListSequence<TElement>::TestGet(TElement a, int index) {
+	index++;
+	int k = 0;
+	
+	try {
+		throw myEr;
+	}
+	catch (CurrentError& e) {
+		if (e.what(1, index, index, getLength()) == "NORMAL_STATE")
+			int r = 0;
+		else
+		{
+			cout << e.what(1, index, index, getLength()) << endl;
+			k = -1;
+		}
+	}
+	if (k!= -1) {
+		if (Get(index) == a)
+			cout << "The function getting element works correctly" << endl;
+		else
+			cout << "The function of getting element works incorrectly" << endl;
+	}
+
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestInsert(int *ar, int index) {
+	int item = 0;
+	try
+	{
+		throw myEr;
+	}
+	catch (CurrentError& e)
+	{
+		if (e.what(1, index, index, getLength()) == "NORMAL_STATE")
+			int r = 0;
+		else
+		{
+			cout << e.what(1, index, index, getLength()) << endl;
+			item = -8888;
+		}
+	}
+
+	if (item != -8888) {
+		InsertAt(index, 88);
+		int fl = 0;
+		Node<TElement> *tmp = head;
+		int i = 0;
+		while (tmp) {
+			if (tmp->data == ar[i])
+				fl++;
+			tmp = tmp->Next;
+			i++;
+		}
+		
+		if (fl == 4)
+			cout << "The function of insert works correctly" << endl;
+		else
+			cout << "The function of insert works incorrectly" << endl;
+	}
 }

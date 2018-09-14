@@ -69,22 +69,22 @@ void Sequence<TElement>::Display() {
 
 template <typename TElement>
 void Sequence<TElement>::TestAppend(TElement a, int len) {
-	int q;
+	len = 0;
 }
 
 template <typename TElement>
 void Sequence<TElement>::TestGet(TElement a, int b) {
-	int c;
+	b = 0;
 }
 
 template <typename TElement>
 void Sequence<TElement>::TestGetFirst(TElement h) {
-	int u = 0;
+	h = 0;
 }
 
 template <typename TElement>
 void Sequence<TElement>::TestGetLast(TElement f) {
-	int d;
+	TElement g = f + 1;
 }
 
 

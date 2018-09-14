@@ -209,21 +209,6 @@ void  ArraySequence<TElement>::TestAppend(TElement a,int len) {
 			cout << "The length of a sequence is 1. Function of append element is working incorrectly " << endl;
 	}
 }
-//
-//template <typename TElement>
-//void ArraySequence<TElement>::TestGet(TElement a, int index) {
-//	index++;
-//	if (Get(index) == a)
-//		cout << "The function getting works correctly" << endl;
-//	else
-//		cout << "The function of getting eleent works incorrectly" << endl;
-//	
-//	
-//	//if (getLength() == 1) {
-//	//	Get(1);
-//	//	Get(-1);
-//	//}
-//}
 
 template <typename TElement>
 void ArraySequence<TElement>::TestGetFirst(TElement a) {
@@ -253,12 +238,12 @@ template <typename TElement>
 void ArraySequence<TElement>::TestGetSub(int len, TElement curEl) {
 	if (getLength() == len) {
 		if (GetFirst() == GetLast() && GetFirst() == 23)
-			cout << "The gunction of getting sub seq works correctly" << endl;
+			cout << "The function of getting sub seq works correctly" << endl;
 		else 
-			cout << "The gunction of getting sub seq works incorrectly" << endl;
+			cout << "The function of getting sub seq works incorrectly" << endl;
 	}
 	else
-		cout << "The gunction of getting sub seq works correctly" << endl;
+		cout << "The function of getting sub seq works correctly" << endl;
 }
 
 

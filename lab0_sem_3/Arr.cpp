@@ -642,8 +642,13 @@ void ArraySequence<TElement>::TestGet(TElement a, int index) {
 		throw myEx;
 	}
 	catch (Exception& e) {
-		cout << e.what( 1, index, index, getLength()) << endl;
-		k = -1;
+		if (e.what(1, index, index, getLength()) == "NORMAL_STATE")
+			int r = 0;
+		else
+		{
+			cout << e.what(1, index, index, getLength()) << endl;
+			k = -1;
+		}
 	}
 	if (k != -1) {
 		if (Get(index) == a)
@@ -651,7 +656,6 @@ void ArraySequence<TElement>::TestGet(TElement a, int index) {
 		else
 			cout << "The function of getting element works incorrectly" << endl;
 	}
-	
 }
 
 template <typename TElement>

@@ -24,10 +24,11 @@ int main() {
 	arr[2] = 23;
 	arr[3] = 43;
 
-	int curSeq = typeOfSequence();
-	
-	typeData = typeOfDataOfSeq();
+	//int curSeq = typeOfSequence();	
+	//typeData = typeOfDataOfSeq();
 
+	cout << "TESTS for ArraySequence" << endl;
+	cout << "\n";
 	ArraySequence<int> test;
 	test.TestLength(0);
 	cout << "\n";
@@ -66,6 +67,60 @@ int main() {
 	cout << "\n";
 	test.TestRemove(arr, 43);
 	test.TestRemove(arr, 888881);
+
+
+	cout << "\n"; 
+	cout << "///////////////////////////////////////////////////////////////////////////////////////////////////"<<endl;
+	cout << "TESTS for ListSequence" << endl;
+	cout << "\n";
+	ListSequence<int> testList;
+	int *arrList = new int[4];
+	arrList[0] = 53;
+	arrList[1] = 88;
+	arrList[2] = 23;
+	arrList[3] = 43;
+	testList.TestLength(0);
+	cout << "\n";
+	testList.Append(23);
+	testList.TestLength(1);
+	cout << "\n";
+	testList.TestGetFirst(23);
+	cout << "\n";
+	testList.TestGetLast(23);
+	cout << "\n";
+	testList.TestGet(23, 0);
+	testList.TestGet(23, 1);
+	testList.TestGet(23, -1);
+	testList.Append(43);
+	testList.TestLength(2);
+	cout << "\n";
+	testList.TestGetFirst(23);
+	testList.TestGetLast(43);
+	testList.TestGet(23, 0);
+	testList.TestGet(43, 1);
+	testList.TestGet(43, -1);
+	testList.TestGet(43, 2);
+	testList.Prepend(53);
+	testList.TestLength(3);
+	cout << "\n";
+	cout << "Prepend test" << endl;
+	testList.TestGetFirst(53);
+	cout << "\n";
+	testList.TestGetLast(43);
+	cout << "\n";
+	testList.TestGet(43, -1);
+	testList.TestGet(43, 3);
+	testList.GetSubSequence(1, 1).TestGetSub(1, 23);
+	cout << "\n";
+	testList.TestInsert(arrList, 2);
+	cout << "\n";
+	testList.TestInsert(arrList, -1);
+	cout << "\n";
+	testList.TestInsert(arrList, 8);
+	cout << "\n";
+	testList.TestRemove(arr, 43);
+	testList.TestRemove(arr, 888881);
+
 	/*if (curSeq == 1) {
 		if (typeData == 1)
 			IntArrSeq();

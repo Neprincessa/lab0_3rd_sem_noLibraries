@@ -279,4 +279,75 @@ ListSequence<TElement> ListSequence<TElement>::GetSubSequence(int startIndex, in
 
 	return resulList;
 }
+
+//--------------------------------Test--------------------------------//
+template <typename TElement>
+void  ListSequence<TElement>::TestAppend(TElement a, int len) {
+	if (len == 0) {
+		if (getLength() == 0)
+			cout << "The length of a sequence is 0. Function of getting length is working correctly" << endl;
+		else
+			cout << "The length of a sequence is 0. Function of getting length is working incorrectly" << endl;
+		Append(a);
+		if (getLength() == 1)
+			cout << "The length of a sequence is 1. Function of append element is working correctly " << endl;
+		else
+			cout << "The length of a sequence is 1. Function of append element is working incorrectly " << endl;
+	}
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestGetFirst(TElement a) {
+	if (GetFirst() == a)
+		cout << "The function of getting a first element is correctly" << endl;
+	else
+		cout << "The function of getting a first element is incorrectly" << endl;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestGetLast(TElement res) {
+	if (GetLast() == res)
+		cout << "The function of getting last works correctly" << endl;
+	else
+		cout << "The function of getting last works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestLength(int l) {
+	if (getLength() == l)
+		cout << "The function of getting length works correctly" << endl;
+	else
+		cout << "The function of getting length works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestGetSub(int len, TElement curEl) {
+	if (getLength() == len) {
+		if (GetFirst() == GetLast() && GetFirst() == 23)
+			cout << "The function of getting sub seq works correctly" << endl;
+		else
+			cout << "The function of getting sub seq works incorrectly" << endl;
+	}
+	else
+		cout << "The gunction of getting sub seq works correctly" << endl;
+}
+
+template <typename TElement>
+void ListSequence<TElement>::TestRemove(int *arr, TElement elemem) {
+	Remove(elemem);
+	int fl = 0;
+	Node<TElement> *tmp = head;
+	int i = 0;
+	while (tmp) {
+		if (tmp->data == arr[i])
+			fl++;
+		i++;
+		tmp = tmp->Next;
+	}
+
+	if (fl == amount)
+		cout << "the function of removing works correctly" << endl;
+	else
+		cout << "the function of removing works incorrectltly" << endl;
+}
 #endif // !_LST__T__

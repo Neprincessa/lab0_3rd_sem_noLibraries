@@ -77,7 +77,7 @@ public:
 	void TestGetLast(TElement);
 	void TestGet(TElement,int);
 	void TestLength(int);
-	void TestInsert(int*,int);
+	void TestInsert(int*,int); 
 	void TestRemove(int*, TElement);
 	void TestGetSub(int, TElement);
 };
@@ -111,14 +111,14 @@ public:
 	void Display();
 
 	//--------------------------------------Test------------------------------//
-	//void TestAppend(TElement a, int);
-	/*void TestGetFirst(TElement);
+	void TestAppend(TElement a, int);
+	void TestGetFirst(TElement);
 	void TestGetLast(TElement);
 	void TestGet(TElement, int);
 	void TestLength(int);
 	void TestInsert(int*, int);
 	void TestRemove(int*, TElement);
-	void TestGetSub(int, TElement);*/
+	void TestGetSub(int, TElement);
 };
 
 #include "templ_impl.h"
