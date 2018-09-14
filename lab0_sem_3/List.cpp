@@ -160,11 +160,14 @@ void IntListSeq() {
 				else
 				{
 					cout << e.what(1, number, number, myList.getLength()) << endl;
-					number = 1;
+					number = -1;
 				}
 
 			}
-			myList.Get(number);
+			if (number != -1)
+				myList.Get(number);
+			else
+				cout << "You can't get an element" << endl;
 
 			break;
 		}
@@ -433,12 +436,15 @@ void DoubleListSeq() {
 				else
 				{
 					cout << e.what(1, ind, ind, myList.getLength()) << endl;
-					ind = 1;
+					ind = -1;
 				}
 
 			}
 
-			myList.Get(ind);
+			if (ind != -1)
+				myList.Get(ind);
+			else
+				cout << "You can't get an element" << endl;
 
 			break;
 		}

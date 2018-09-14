@@ -12,4 +12,11 @@ void DoubleArrSeq();
 void IntListSeq();
 void DoubleListSeq();
 
+
+//void TestAppend();
+//void TestPrepend();
+//void TestGetFirst();
+//void TestGetLast();
+//void TestInsert();
+//void TestGet();
 #endif // !_LAB__0__

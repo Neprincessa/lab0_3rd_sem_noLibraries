@@ -66,4 +66,45 @@ template <typename TElement>
 void Sequence<TElement>::Display() {
 	cout << "The sequence is:" << endl;
 }
+
+template <typename TElement>
+void Sequence<TElement>::TestAppend(TElement a, int len) {
+	int q;
+}
+
+template <typename TElement>
+void Sequence<TElement>::TestGet(TElement a, int b) {
+	int c;
+}
+
+template <typename TElement>
+void Sequence<TElement>::TestGetFirst(TElement h) {
+	int u = 0;
+}
+
+template <typename TElement>
+void Sequence<TElement>::TestGetLast(TElement f) {
+	int d;
+}
+
+
+template <typename TElement>
+void Sequence<TElement>::TestLength(int l) {
+	l = 0;
+}
+
+template <typename TElement>
+void Sequence<TElement>::TestGetSub(int a, TElement el) {
+	a = 0;
+}
+
+template <typename TElement>
+void Sequence<TElement>::TestInsert(int *ar, int ind) {
+	ar[0] = 0;
+}
+
+template <typename TElement>
+void Sequence<TElement> ::TestRemove(int* a, TElement elem) {
+
+}
 #endif // !_TEML__I__

@@ -74,6 +74,7 @@ void IntArrSeq() {
 	while (definiteFunc != 0) {
 
 		definiteFunc = myArr.chooseFunction();
+		//definiteFunc = 30;
 
 		switch (definiteFunc)
 		{
@@ -145,7 +146,7 @@ void IntArrSeq() {
 				else
 				{
 					cout << e.what(1, number, number, myArr.getLength()) << endl;
-					number = 1;
+					number = -1;
 				}
 					
 			}
@@ -158,7 +159,10 @@ void IntArrSeq() {
 				number = atoi(s);
 			}*/
 
-			myArr.Get(number);
+			if (number != -1)
+				myArr.Get(number);
+			else
+				cout << "You can't get an element" << endl;
 
 			break;
 		}
@@ -326,9 +330,22 @@ void IntArrSeq() {
 			cout << "\n";
 			break;
 		}
+		case 30: {
+			ArraySequence<int> test;
+			test.TestLength(0);
+			test.Append(23);
+			test.TestLength(1);
+			test.TestGetFirst(23);
+			test.TestGetLast(23);
+			test.TestGet(23, 0);
+			test.TestGet(23, 1);
+			test.TestGet(23, -1);
+			break;
+		}
 		default:
 			break;
 		}
+		definiteFunc = 0;
 	}
 }
 
@@ -426,11 +443,14 @@ void DoubleArrSeq() {
 				else
 				{
 					cout << e.what(1, ind, ind, myArr.getLength()) << endl;
-					ind = 1;
+					ind = -1;
 				}
 
 			}
-			myArr.Get(ind);
+			if (ind != -1)
+				myArr.Get(ind);
+			else
+				cout << "You can't get an element" << endl;
 
 			break;
 		}
@@ -593,8 +613,71 @@ void DoubleArrSeq() {
 			cout << "\n";
 			break;
 		}
+		/*case 30: {
+			ArraySequence<int> test;
+			test.TestLength(0);
+			test.Append(23);
+			test.TestLength(1);
+			test.TestGetFirst(23);
+			test.TestGetLast(23);
+			test.TestGet(23, 0);
+			test.TestGet(23, 1);
+			test.TestGet(23, -1);
+			break;
+		}*/
 		default:
 			break;
 		}
+		definiteFunc = 0;
 	}
+}
+
+
+
+template <typename TElement>
+void ArraySequence<TElement>::TestGet(TElement a, int index) {
+	index++;
+	if (Get(index) == a)
+		cout << "The function getting works correctly" << endl;
+	else
+		cout << "The function of getting eleent works incorrectly" << endl;
+	try {
+		throw myEx;
+	}
+	catch (Exception& e) {
+		cout << e.what( 1, index, index, getLength()) << endl;
+	}
+
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestInsert(int *ar, int index) {
+	int item = 0;
+	try
+	{
+		throw myEx;
+	}
+	catch (Exception& e)
+	{
+		if (e.what(1, index, index, getLength()) == "NORMAL_STATE")
+			int r = 0;
+		else
+		{
+			cout << e.what(1, index, index, getLength()) << endl;
+			item = -8888;
+		}
+	}
+
+	if (item != -8888) {
+		InsertAt(index, 88);
+		int fl = 0;
+		for (int i = 0; i < currentAmount; i++)
+			if (ar[i] == currentArr[i])
+				fl++;
+		if (fl == 4)
+			cout << "The function of insert works correctly" << endl;
+		else
+			cout << "The function of insert works incorrectly" << endl;
+	}
+
 }

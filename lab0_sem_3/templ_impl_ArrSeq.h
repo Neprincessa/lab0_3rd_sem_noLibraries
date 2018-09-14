@@ -1,5 +1,6 @@
 #ifndef _ARR__T__
 #define _ARR__T__
+
 using namespace std;
 
 //----------------------------------------------------------ArraySequence-------------------------------------------//
@@ -191,6 +192,87 @@ template <typename TElement>
 int ArraySequence<TElement>::chooseFunction() {
 	int typeOfFunction = whatFunc();
 	return typeOfFunction;
+}
+
+//--------------------------------Test--------------------------------//
+template <typename TElement>
+void  ArraySequence<TElement>::TestAppend(TElement a,int len) {
+	if (len == 0) {
+		if (getLength() == 0)
+			cout << "The length of a sequence is 0. Function of getting length is working correctly" << endl;
+		else 
+			cout<<"The length of a sequence is 0. Function of getting length is working incorrectly" << endl;
+		Append(a);
+		if (getLength() == 1)
+			cout << "The length of a sequence is 1. Function of append element is working correctly " << endl;
+		else 
+			cout << "The length of a sequence is 1. Function of append element is working incorrectly " << endl;
+	}
+}
+//
+//template <typename TElement>
+//void ArraySequence<TElement>::TestGet(TElement a, int index) {
+//	index++;
+//	if (Get(index) == a)
+//		cout << "The function getting works correctly" << endl;
+//	else
+//		cout << "The function of getting eleent works incorrectly" << endl;
+//	
+//	
+//	//if (getLength() == 1) {
+//	//	Get(1);
+//	//	Get(-1);
+//	//}
+//}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestGetFirst(TElement a) {
+	if (GetFirst() == a)
+		cout << "The function of getting a first element is correctly" << endl;
+	else
+		cout << "The function of getting a first element is incorrectly" << endl;
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestGetLast(TElement res) {
+	if (GetLast() == res)
+		cout << "The function of getting last works correctly" << endl;
+	else
+		cout << "The function of getting last works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestLength(int l) {
+	if (getLength() == l)
+		cout << "The function of getting length works correctly" << endl;
+	else
+		cout << "The function of getting length works incorrectly" << endl;
+}
+
+template <typename TElement>
+void ArraySequence<TElement>::TestGetSub(int len, TElement curEl) {
+	if (getLength() == len) {
+		if (GetFirst() == GetLast() && GetFirst() == 23)
+			cout << "The gunction of getting sub seq works correctly" << endl;
+		else 
+			cout << "The gunction of getting sub seq works incorrectly" << endl;
+	}
+	else
+		cout << "The gunction of getting sub seq works correctly" << endl;
+}
+
+
+template <typename TElement>
+void ArraySequence<TElement>::TestRemove(int *arr, TElement elemem) {
+	Remove(elemem);
+	int fl = 0;
+	for (int i = 0; i < currentAmount; i++)
+		if (currentArr[i] == arr[i])
+			fl++;
+	if (fl == currentAmount)
+		cout << "the function of removing works correctly" << endl;
+	else
+		cout << "the function of removing works incorrectltly" << endl;
 }
 
 

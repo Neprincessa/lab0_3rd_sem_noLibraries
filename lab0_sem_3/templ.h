@@ -31,6 +31,16 @@ public:
 	virtual int chooseFunction(); // what to do with func
 
 	//virtual Sequence<TElement> GetSubSequence(int, int); //get the sequence from the start index to end one
+
+	//-----------------Test-------------------//
+	virtual void TestAppend(TElement,int); //delete
+	virtual void TestGetFirst(TElement);
+	virtual void TestGetLast(TElement);
+	virtual void TestInsert(int*,int);
+	virtual void TestGet(TElement, int);
+	virtual void TestGetSub(int, TElement);
+	virtual void TestRemove(int*, TElement);
+	virtual void TestLength(int);
 };
 
 
@@ -59,6 +69,17 @@ public:
 	void Remove(TElement);
 	ArraySequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
+
+
+	//--------------------------------------------Test---------------------//
+	void TestAppend(TElement a,int);
+	void TestGetFirst(TElement);
+	void TestGetLast(TElement);
+	void TestGet(TElement,int);
+	void TestLength(int);
+	void TestInsert(int*,int);
+	void TestRemove(int*, TElement);
+	void TestGetSub(int, TElement);
 };
 
 
@@ -88,6 +109,14 @@ public:
 	ListSequence<TElement> GetSubSequence(int, int);
 	int chooseFunction();
 	void Display();
+
+	//-----------------------------------------Test---------------------//
+	//void TestAppend();
+	//void TestPrepend();
+	//void TestGetFirst();
+	//void TestGetLast();
+	//void TestInsert();
+	//void TestGet();
 };
 
 #include "templ_impl.h"
