@@ -641,7 +641,7 @@ void ListSequence<TElement>::TestGet(TElement a, int index) {
 }
 
 template <typename TElement>
-void ListSequence<TElement>::TestInsert(int *ar, int index) {
+void ListSequence<TElement>::TestInsert(int *ar, int index, TElement el) {
 	int item = 0;
 	try
 	{
@@ -659,12 +659,16 @@ void ListSequence<TElement>::TestInsert(int *ar, int index) {
 	}
 
 	if (item != -8888) {
-		InsertAt(index, 88);
+		InsertAt(index, el);
 		int fl = 0;
 		Node<TElement> *tmp = head;
+		int *tmpAr = new int[amount];
+		tmpAr[index - 1] = el;
+		for (int i = 1; i < amount; i++)
+			tmpAr[i] = ar[i - 1];
 		int i = 0;
 		while (tmp) {
-			if (tmp->data == ar[i])
+			if (tmp->data == tmpAr[i])
 				fl++;
 			tmp = tmp->Next;
 			i++;

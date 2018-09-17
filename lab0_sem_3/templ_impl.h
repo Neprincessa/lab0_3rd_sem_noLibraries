@@ -99,7 +99,7 @@ void Sequence<TElement>::TestGetSub(int a, TElement el) {
 }
 
 template <typename TElement>
-void Sequence<TElement>::TestInsert(int *ar, int ind) {
+void Sequence<TElement>::TestInsert(int *ar, int ind, TElement el) {
 	ar[0] = 0;
 }
 

@@ -659,7 +659,7 @@ void ArraySequence<TElement>::TestGet(TElement a, int index) {
 }
 
 template <typename TElement>
-void ArraySequence<TElement>::TestInsert(int *ar, int index) {
+void ArraySequence<TElement>::TestInsert(int *ar, int index, TElement el) {
 	int item = 0;
 	try
 	{
@@ -677,10 +677,17 @@ void ArraySequence<TElement>::TestInsert(int *ar, int index) {
 	}
 
 	if (item != -8888) {
-		InsertAt(index, 88);
+		InsertAt(index, el);
 		int fl = 0;
+		int j = 0;
+		int *tmp = new int[currentAmount];
+		
+		tmp[index - 1] = el;
+		for (int i = 1; i < currentAmount; i++)
+			tmp[i] = ar[i - 1];
+		
 		for (int i = 0; i < currentAmount; i++)
-			if (ar[i] == currentArr[i])
+			if (tmp[i] == currentArr[i])
 				fl++;
 		if (fl == 4)
 			cout << "The function of insert works correctly" << endl;

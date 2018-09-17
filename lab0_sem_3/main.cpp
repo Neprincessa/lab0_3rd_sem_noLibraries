@@ -20,9 +20,9 @@ int main() {
 
 	int *arr = new int[4];
 	arr[0] = 53; 
-	arr[1] = 88;
-	arr[2] = 23;
-	arr[3] = 43;
+	//arr[1] = 88;
+	arr[1] = 23;
+	arr[2] = 43;
 
 	//int curSeq = typeOfSequence();	
 	//typeData = typeOfDataOfSeq();
@@ -57,14 +57,20 @@ int main() {
 	test.TestGetLast(43);
 	test.TestGet(43, -1);
 	test.TestGet(43, 3);
+	cout << "dsssssssssssssssssssssssssssssssssss" << endl;
+	test.Display();
 	test.GetSubSequence(1, 1).TestGetSub(1, 23);
 	cout << "\n";
-	test.TestInsert(arr,2);
+	test.TestInsert(arr,1,63);
 	cout << "\n";
-	test.TestInsert(arr, -1);
+	test.TestLength(4);
 	cout << "\n";
-	test.TestInsert(arr, 8);
+	test.TestInsert(arr,-1,33);
 	cout << "\n";
+	test.TestGet(23,2);
+	cout << "\n";
+	test.Display();
+	
 	test.TestRemove(arr, 43);
 	test.TestRemove(arr, 888881);
 
@@ -76,9 +82,9 @@ int main() {
 	ListSequence<int> testList;
 	int *arrList = new int[4];
 	arrList[0] = 53;
-	arrList[1] = 88;
-	arrList[2] = 23;
-	arrList[3] = 43;
+	//arrList[1] = 88;
+	arrList[0] = 23;
+	arrList[1] = 43;
 	testList.TestLength(0);
 	cout << "\n";
 	testList.Append(23);
@@ -112,11 +118,12 @@ int main() {
 	testList.TestGet(43, 3);
 	testList.GetSubSequence(1, 1).TestGetSub(1, 23);
 	cout << "\n";
-	testList.TestInsert(arrList, 2);
+	test.TestInsert(arr, 1, 63);
 	cout << "\n";
-	testList.TestInsert(arrList, -1);
+	testList.TestInsert(arr, -1, 33);
 	cout << "\n";
-	testList.TestInsert(arrList, 8);
+	testList.TestGet(23, 2);
+	cout << "\n";
 	cout << "\n";
 	testList.TestRemove(arr, 43);
 	testList.TestRemove(arr, 888881);

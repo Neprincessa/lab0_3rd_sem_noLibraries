@@ -36,7 +36,7 @@ public:
 	virtual void TestAppend(TElement,int); //delete
 	virtual void TestGetFirst(TElement);
 	virtual void TestGetLast(TElement);
-	virtual void TestInsert(int*,int);
+	virtual void TestInsert(int*,int, TElement);
 	virtual void TestGet(TElement, int);
 	virtual void TestGetSub(int, TElement);
 	virtual void TestRemove(int*, TElement);
@@ -77,7 +77,7 @@ public:
 	void TestGetLast(TElement);
 	void TestGet(TElement,int);
 	void TestLength(int);
-	void TestInsert(int*,int); 
+	void TestInsert(int*,int, TElement);
 	void TestRemove(int*, TElement);
 	void TestGetSub(int, TElement);
 };
@@ -116,7 +116,7 @@ public:
 	void TestGetLast(TElement);
 	void TestGet(TElement, int);
 	void TestLength(int);
-	void TestInsert(int*, int);
+	void TestInsert(int*, int, TElement);
 	void TestRemove(int*, TElement);
 	void TestGetSub(int, TElement);
 };
