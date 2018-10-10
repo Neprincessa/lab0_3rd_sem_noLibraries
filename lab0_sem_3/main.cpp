@@ -57,8 +57,8 @@ int main() {
 	test.TestGetLast(43);
 	test.TestGet(43, -1);
 	test.TestGet(43, 3);
-	cout << "dsssssssssssssssssssssssssssssssssss" << endl;
-	test.Display();
+	//cout << "dsssssssssssssssssssssssssssssssssss" << endl;
+	//test.Display();
 	test.GetSubSequence(1, 1).TestGetSub(1, 23);
 	cout << "\n";
 	test.TestInsert(arr,1,63);
@@ -118,28 +118,33 @@ int main() {
 	testList.TestGet(43, 3);
 	testList.GetSubSequence(1, 1).TestGetSub(1, 23);
 	cout << "\n";
-	test.TestInsert(arr, 1, 63);
+	testList.TestInsert(arr, 1, 63);
 	cout << "\n";
 	testList.TestInsert(arr, -1, 33);
 	cout << "\n";
+	testList.Display();
 	testList.TestGet(23, 2);
 	cout << "\n";
 	cout << "\n";
-	testList.TestRemove(arr, 43);
-	testList.TestRemove(arr, 888881);
+	int *tmpAr = new int[3];
+	tmpAr[0] = 63;
+	tmpAr[1] = 53;
+	tmpAr[2] = 23;
+	testList.TestRemove(tmpAr, 43);
+	testList.TestRemove(tmpAr, 888881);
 
-	/*if (curSeq == 1) {
-		if (typeData == 1)
-			IntArrSeq();
-		if (typeData == 2)
-			DoubleArrSeq();
-	}
-	if (curSeq == 2) {	
-		if (typeData == 1)
-			IntListSeq();
-		if (typeData == 2)
-			DoubleListSeq();
-	}*/
+	//if (curSeq == 1) {
+	//	if (typeData == 1)
+	//		IntArrSeq();
+	//	if (typeData == 2)
+	//		DoubleArrSeq();
+	//}
+	//if (curSeq == 2) {	
+	//	if (typeData == 1)
+	//		IntListSeq();
+	//	if (typeData == 2)
+	//		DoubleListSeq();
+	//}
 
 	
 	system("pause");
